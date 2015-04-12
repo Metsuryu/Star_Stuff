@@ -15,6 +15,14 @@ public:
     explicit Settings(QWidget *parent = 0);
     ~Settings();
 
+private slots:
+
+    void on_PlayMusic_clicked();
+
+    void on_OKCancel_rejected();
+
+    void on_OKCancel_accepted();
+
 private:
     Ui::Settings *ui;
 };

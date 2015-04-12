@@ -4,7 +4,8 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui \
+            multimedia
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -15,12 +16,18 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     maingame.cpp \
-    settings.cpp
+    settings.cpp \
+    setroute.cpp
 
 HEADERS  += mainwindow.h \
     maingame.h \
-    settings.h
+    settings.h \
+    setroute.h
 
 FORMS    += mainwindow.ui \
     maingame.ui \
-    settings.ui
+    settings.ui \
+    setroute.ui
+
+RESOURCES += \
+    res.qrc

@@ -15,6 +15,11 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+public:
+
+    void setok();
+
+
 private slots:
 
 
@@ -24,8 +29,16 @@ private slots:
 
     void on_Settings_clicked();
 
-private:
+    void on_LoadGame_clicked();
+
+    void on_ChangeLanguage_clicked();
+
+
+
+public:
+//should be private:
     Ui::MainWindow *ui;
+
 };
 
 #endif // MAINWINDOW_H
