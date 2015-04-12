@@ -34,4 +34,4 @@ void MainWindow::on_Settings_clicked()
     sttngs.exec();
 }
 
-//test comment
+//test comment 1
