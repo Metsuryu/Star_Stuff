@@ -2,15 +2,17 @@
 #include "ui_mainwindow.h"
 #include "maingame.h"
 #include "settings.h"
-#include "iostream"
+
+
 
 
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
-{
+{    
     ui->setupUi(this);
+
 }
 
 MainWindow::~MainWindow()
@@ -30,14 +32,16 @@ void MainWindow::on_NewGame_clicked()  //Opens Maingame window
     MainGame *mgame = new MainGame;
     mgame->setWindowTitle("Star Stuff");
     mgame->show();
-    this->hide();
+    this->destroy();
 }
 
 void MainWindow::on_Settings_clicked() //Opens settings
 {
-    Settings settings;
-    settings.setModal(true);
-    settings.exec();
+    Settings* settings = new Settings;
+    connect(&settings,SIGNAL(ChangeMain_clicked()),this,SLOT(setok())); //this gives me the error
+    settings->setModal(true);
+    settings->exec();
+
 }
 
 void MainWindow::on_LoadGame_clicked()
@@ -53,18 +57,47 @@ void MainWindow::on_ChangeLanguage_clicked()
     //Also, add potential to add another language.
 
     //Placeholder code:
-        ui->NewGame->setText("Gioca");
+    ui->NewGame->setText("Gioca");
 }
 
-void setok()
+
+void MainWindow::setok()
 {
-   // using namespace std;
-   // cout << "OK Clicked\n";
-
-    MainWindow *mn= new MainWindow;
-    mn->ui->TitleLabel->setText("OK.");
-    mn->ui->NewGame->setText("OK");
-   //MainWindow::ui->TitleLabel->setText("OK"); //Try to make this work
+   // MainWindow *mn = new MainWindow(); //Doesn't work
+   // mn->ui->TitleLabel->setText("OK.");
+    ui->TitleLabel->setText("OK.");
+    ui->NewGame->setText("OK.");
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

@@ -17,12 +17,14 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     maingame.cpp \
     settings.cpp \
-    setroute.cpp
+    setroute.cpp \
+    funcs.cpp
 
 HEADERS  += mainwindow.h \
     maingame.h \
     settings.h \
-    setroute.h
+    setroute.h \
+    funcs.h
 
 FORMS    += mainwindow.ui \
     maingame.ui \

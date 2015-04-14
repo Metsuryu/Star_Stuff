@@ -16,9 +16,9 @@ MainGame::~MainGame()
 }
 
 
-
 void MainGame::on_actionQuit_triggered()
-{
+{    
+        //check if saved
         QApplication::quit();
 }
 

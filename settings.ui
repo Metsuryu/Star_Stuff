@@ -6,14 +6,42 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>285</width>
-    <height>336</height>
+    <width>308</width>
+    <height>404</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
+   <item row="4" column="0">
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QRadioButton" name="EngRadioButton">
+       <property name="text">
+        <string>English</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QRadioButton" name="ItaRadioButton">
+       <property name="text">
+        <string>Italiano</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="2" column="0">
+    <widget class="QPushButton" name="PlayMusic">
+     <property name="text">
+      <string>Play Music</string>
+     </property>
+    </widget>
+   </item>
    <item row="0" column="0">
     <widget class="QLabel" name="SettingsLabel">
      <property name="text">
@@ -41,7 +69,7 @@
      </property>
     </spacer>
    </item>
-   <item row="6" column="0">
+   <item row="7" column="0">
     <widget class="QDialogButtonBox" name="OKCancel">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
@@ -85,31 +113,10 @@
      </item>
     </layout>
    </item>
-   <item row="4" column="0">
-    <layout class="QHBoxLayout" name="horizontalLayout_2">
-     <item>
-      <widget class="QRadioButton" name="EngRadioButton">
-       <property name="text">
-        <string>English</string>
-       </property>
-       <property name="checked">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QRadioButton" name="ItaRadioButton">
-       <property name="text">
-        <string>Italiano</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </item>
-   <item row="2" column="0">
-    <widget class="QPushButton" name="PlayMusic">
+   <item row="6" column="0">
+    <widget class="QPushButton" name="ChangeMain">
      <property name="text">
-      <string>Play Music</string>
+      <string>Change Main</string>
      </property>
     </widget>
    </item>
@@ -124,12 +131,12 @@
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>248</x>
-     <y>254</y>
+     <x>164</x>
+     <y>394</y>
     </hint>
     <hint type="destinationlabel">
      <x>157</x>
-     <y>274</y>
+     <y>211</y>
     </hint>
    </hints>
   </connection>
@@ -140,12 +147,12 @@
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>316</x>
-     <y>260</y>
+     <x>164</x>
+     <y>394</y>
     </hint>
     <hint type="destinationlabel">
-     <x>286</x>
-     <y>274</y>
+     <x>173</x>
+     <y>211</y>
     </hint>
    </hints>
   </connection>

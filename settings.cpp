@@ -2,7 +2,7 @@
 #include "ui_settings.h"
 #include <QMediaPlayer>
 #include "mainwindow.h"
-#include "mainwindow.cpp"
+#include "funcs.h"
 
 
 
@@ -11,6 +11,7 @@ Settings::Settings(QWidget *parent) :
     ui(new Ui::Settings)
 {
     ui->setupUi(this);
+
 }
 
 Settings::~Settings()
@@ -25,16 +26,14 @@ Settings::~Settings()
 
 void Settings::on_OKCancel_accepted()
 {
-        //TODO: Save settings
-    setok();
+    //TODO: Save settings
 }
 void Settings::on_OKCancel_rejected()
 {
-//    MainWindow::ui->TitleLabel->setText("Cancel");
-        setok();
+
 }
 
-//TODO: Clean this code for music:
+//Plays music
 bool musicplaying = false;
 QMediaPlayer *music = new QMediaPlayer;
 
@@ -44,24 +43,26 @@ void Settings::on_PlayMusic_clicked()
     music->setVolume(50);
 
 
-if (musicplaying){
+    if (musicplaying){
 
-    music->stop();
-    ui->PlayMusic->setText("Play Music");
-    musicplaying = false;
+        music->stop();
+        ui->PlayMusic->setText("Play Music");
+        musicplaying = false;
 
     }else{
 
-    music->play();
-    ui->PlayMusic->setText("Stop Music");
-    musicplaying = true;
-         }
-
-
-
+        music->play();
+        ui->PlayMusic->setText("Stop Music");
+        musicplaying = true;
+    }
 }
 
 
 
+void Settings::on_ChangeMain_clicked()
+{
+    emit ChangeMain_clicked();
 
+}
 
+void ChangeMain_clicked(){}

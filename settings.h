@@ -2,6 +2,7 @@
 #define SETTINGS_H
 
 #include <QDialog>
+#include "mainwindow.h"
 
 namespace Ui {
 class Settings;
@@ -22,6 +23,10 @@ private slots:
     void on_OKCancel_rejected();
 
     void on_OKCancel_accepted();
+
+    void on_ChangeMain_clicked();
+
+    void ChangeMain_clicked();
 
 private:
     Ui::Settings *ui;
