@@ -37,10 +37,11 @@ void MainWindow::on_NewGame_clicked()  //Opens Maingame window
 
 void MainWindow::on_Settings_clicked() //Opens settings
 {
-    Settings* settings = new Settings;
+    //Settings* settings = new Settings;
+    Settings settings;
     connect(&settings,SIGNAL(ChangeMain_clicked()),this,SLOT(setok())); //this gives me the error
-    settings->setModal(true);
-    settings->exec();
+    settings.setModal(true);
+    settings.exec();
 
 }
 

@@ -26,7 +26,9 @@ private slots:
 
     void on_ChangeMain_clicked();
 
-    void ChangeMain_clicked();
+signals:
+
+    void ChangeMain_clicked(); //Needs to be a SIGNAL to be used in connect
 
 private:
     Ui::Settings *ui;

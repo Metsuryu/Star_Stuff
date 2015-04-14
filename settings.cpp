@@ -21,11 +21,11 @@ Settings::~Settings()
 
 
 
-
 //TODO: add settings
 
 void Settings::on_OKCancel_accepted()
 {
+
     //TODO: Save settings
 }
 void Settings::on_OKCancel_rejected()
@@ -62,7 +62,6 @@ void Settings::on_PlayMusic_clicked()
 void Settings::on_ChangeMain_clicked()
 {
     emit ChangeMain_clicked();
-
 }
 
 void ChangeMain_clicked(){}
