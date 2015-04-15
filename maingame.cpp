@@ -2,6 +2,7 @@
 #include "ui_maingame.h"
 #include "settings.h"
 #include "setroute.h"
+#include <QMessageBox>
 
 MainGame::MainGame(QWidget *parent) :
     QMainWindow(parent),
@@ -15,11 +16,22 @@ MainGame::~MainGame()
     delete ui;
 }
 
+//bool unsaved(); //TODO: Implement this to check if there is unsaved data and use it on closeEvent();
+
+
+void MainGame::closeEvent(QCloseEvent *event)
+{
+    event->ignore();
+    QApplication::quit(); //Quit without asking for now. TODO: Ask before quitting.
+}
 
 void MainGame::on_actionQuit_triggered()
-{    
-        //check if saved
-        QApplication::quit();
+{
+    //closeEvent();
+
+    //check if saved
+
+    QApplication::quit(); //Quit without asking for now. TODO: Ask before quitting.
 }
 
 void MainGame::on_actionSettings_triggered()

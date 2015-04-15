@@ -24,6 +24,9 @@ private slots:
 
 private:
     Ui::MainGame *ui;
+
+//protected:
+    void closeEvent(QCloseEvent *event);
 };
 
 #endif // MAINGAME_H

@@ -29,6 +29,7 @@ void MainWindow::on_Quit_clicked() //Quits game
 
 void MainWindow::on_NewGame_clicked()  //Opens Maingame window
 {
+    //MainGame mgame;
     MainGame *mgame = new MainGame;
     mgame->setWindowTitle("Star Stuff");
     mgame->show();
@@ -39,7 +40,7 @@ void MainWindow::on_Settings_clicked() //Opens settings
 {
     //Settings* settings = new Settings;
     Settings settings;
-    connect(&settings,SIGNAL(ChangeMain_clicked()),this,SLOT(setok())); //this gives me the error
+    connect(&settings,SIGNAL(ChangeMain_clicked()),this,SLOT(setok())); //Connects Settings to MainWindow
     settings.setModal(true);
     settings.exec();
 
