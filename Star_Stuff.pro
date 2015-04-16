@@ -33,3 +33,9 @@ FORMS    += mainwindow.ui \
 
 RESOURCES += \
     res.qrc
+
+#-------------------------------
+# TODO: uncomment when ready to release to add icon. Leave commented to reduce compile times.
+#
+# win32:RC_ICONS += ssicon.ico
+#-------------------------------

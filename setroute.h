@@ -15,6 +15,11 @@ public:
     explicit SetRoute(QWidget *parent = 0);
     ~SetRoute();
 
+private slots:
+    void makemap();
+
+    void on_MakeMap_clicked();
+
 private:
     Ui::SetRoute *ui;
 };

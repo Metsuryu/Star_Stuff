@@ -30,7 +30,7 @@ void Settings::on_OKCancel_accepted()
 }
 void Settings::on_OKCancel_rejected()
 {
-
+    //Discard changes
 }
 
 //Plays music
