@@ -2,7 +2,6 @@
 #include "ui_maingame.h"
 #include "settings.h"
 #include "setroute.h"
-#include <QMessageBox>
 
 MainGame::MainGame(QWidget *parent) :
     QMainWindow(parent),
@@ -43,7 +42,9 @@ void MainGame::on_actionSettings_triggered()
 
 void MainGame::on_SetRoute_clicked()
 {
-    SetRoute setroute;
+    SetRoute setroute;// = new setroute;
+    //setroute->show();
+    //this->hide(); //implement with show(); when closing setroute
     setroute.setModal(true);
     setroute.exec();
 }

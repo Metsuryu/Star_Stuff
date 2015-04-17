@@ -2,7 +2,6 @@
 #include "ui_settings.h"
 #include <QMediaPlayer>
 #include "mainwindow.h"
-#include "funcs.h"
 
 
 
