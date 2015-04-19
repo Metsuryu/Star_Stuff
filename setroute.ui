@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>525</width>
-    <height>546</height>
+    <width>550</width>
+    <height>559</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -32,22 +32,22 @@
    <string>Dialog</string>
   </property>
   <layout class="QGridLayout" name="gridLayout_3">
-   <item row="0" column="0">
-    <widget class="QLabel" name="label_4">
+   <item row="1" column="0">
+    <widget class="QLabel" name="LBCurrentLocation">
      <property name="text">
       <string>Current Location:</string>
      </property>
     </widget>
    </item>
-   <item row="0" column="1">
-    <widget class="QLabel" name="label_5">
+   <item row="1" column="1">
+    <widget class="QLabel" name="LBCurrentLocationValue">
      <property name="text">
       <string>Location</string>
      </property>
     </widget>
    </item>
-   <item row="0" column="2">
-    <widget class="QLabel" name="CoordinatesLabel">
+   <item row="1" column="2">
+    <widget class="QLabel" name="LBCoordinates">
      <property name="maximumSize">
       <size>
        <width>94</width>
@@ -59,59 +59,18 @@
      </property>
     </widget>
    </item>
-   <item row="0" column="3">
-    <widget class="QPushButton" name="IconsLegend">
-     <property name="text">
-      <string>Icons Legend</string>
-     </property>
-    </widget>
-   </item>
-   <item row="3" column="3">
-    <widget class="QFrame" name="frame">
-     <property name="maximumSize">
+   <item row="4" column="0" colspan="2">
+    <widget class="QFrame" name="InfoFrame">
+     <property name="minimumSize">
       <size>
-       <width>189</width>
-       <height>83</height>
+       <width>237</width>
+       <height>106</height>
       </size>
      </property>
-     <property name="frameShape">
-      <enum>QFrame::StyledPanel</enum>
-     </property>
-     <property name="frameShadow">
-      <enum>QFrame::Raised</enum>
-     </property>
-     <layout class="QGridLayout" name="gridLayout_2">
-      <item row="0" column="0">
-       <widget class="QPushButton" name="MakeMap">
-        <property name="text">
-         <string>Make Map</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0">
-       <widget class="QPushButton" name="JumpToLocation">
-        <property name="text">
-         <string>Jump to 
-selected location</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="1">
-       <widget class="QPushButton" name="CancelButton">
-        <property name="text">
-         <string>Cancel</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-   </item>
-   <item row="3" column="0" colspan="2">
-    <widget class="QFrame" name="InfoFrame">
      <property name="maximumSize">
       <size>
-       <width>193</width>
-       <height>111</height>
+       <width>237</width>
+       <height>106</height>
       </size>
      </property>
      <property name="frameShape">
@@ -121,67 +80,149 @@ selected location</string>
       <enum>QFrame::Raised</enum>
      </property>
      <layout class="QGridLayout" name="gridLayout">
-      <item row="4" column="0">
-       <widget class="QLabel" name="label_6">
+      <item row="2" column="1" colspan="2">
+       <widget class="QProgressBar" name="BAREnergyRequired">
+        <property name="maximumSize">
+         <size>
+          <width>120</width>
+          <height>21</height>
+         </size>
+        </property>
+        <property name="whatsThis">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Amount of energy required to travel to this destination and return.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="value">
+         <number>24</number>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="1">
+       <widget class="QLabel" name="LBVisitedBeforeValue">
+        <property name="text">
+         <string>No</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="LBEnergyRequired">
+        <property name="text">
+         <string>Energy requied:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1" colspan="2">
+       <widget class="QProgressBar" name="BAREnergyAvailable">
+        <property name="maximumSize">
+         <size>
+          <width>120</width>
+          <height>21</height>
+         </size>
+        </property>
+        <property name="value">
+         <number>24</number>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="0">
+       <widget class="QLabel" name="LBQuest">
         <property name="text">
          <string>Quest?</string>
         </property>
        </widget>
       </item>
-      <item row="2" column="0">
-       <widget class="QLabel" name="label">
+      <item row="4" column="0">
+       <widget class="QLabel" name="LBEnergyAvailable">
         <property name="text">
-         <string>Energy available</string>
+         <string>Energy available:</string>
         </property>
        </widget>
       </item>
-      <item row="1" column="0" colspan="2">
-       <widget class="QLabel" name="label_2">
-        <property name="text">
-         <string>Energy requied 
-(Accounting for return trip)</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="2">
-       <widget class="QProgressBar" name="progressBar_2">
-        <property name="value">
-         <number>24</number>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="1" colspan="2">
-       <widget class="QProgressBar" name="progressBar">
-        <property name="value">
-         <number>24</number>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="0">
-       <widget class="QLabel" name="label_3">
+      <item row="6" column="0">
+       <widget class="QLabel" name="LBVisitedBefore">
         <property name="text">
          <string>Visited Before?</string>
         </property>
        </widget>
       </item>
-      <item row="4" column="2">
-       <widget class="QLabel" name="comment1">
-        <property name="maximumSize">
-         <size>
-          <width>261</width>
-          <height>20</height>
-         </size>
-        </property>
+      <item row="7" column="1">
+       <widget class="QLabel" name="LBQuestValue">
         <property name="text">
-         <string>//Energy required can go over 100% to show how much you need compared to your current energy</string>
+         <string>No Quest</string>
         </property>
        </widget>
       </item>
      </layout>
     </widget>
    </item>
-   <item row="2" column="0" colspan="4">
+   <item row="1" column="3">
+    <widget class="QPushButton" name="BTIconsLegend">
+     <property name="maximumSize">
+      <size>
+       <width>100</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>Icons Legend</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="3">
+    <widget class="QFrame" name="frame">
+     <property name="maximumSize">
+      <size>
+       <width>189</width>
+       <height>53</height>
+      </size>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <property name="spacing">
+       <number>23</number>
+      </property>
+      <item>
+       <widget class="QPushButton" name="BTJumpToLocation">
+        <property name="minimumSize">
+         <size>
+          <width>88</width>
+          <height>34</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Jump to 
+selected location</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="BTCancel">
+        <property name="minimumSize">
+         <size>
+          <width>75</width>
+          <height>23</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Cancel</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="3" column="0" colspan="4">
     <widget class="QWidget" name="MapFrame" native="true">
+     <property name="minimumSize">
+      <size>
+       <width>532</width>
+       <height>350</height>
+      </size>
+     </property>
      <property name="autoFillBackground">
       <bool>false</bool>
      </property>

@@ -17,7 +17,6 @@ MainGame::~MainGame()
 
 //bool unsaved(); //TODO: Implement this to check if there is unsaved data and use it on closeEvent();
 
-
 void MainGame::closeEvent(QCloseEvent *event)
 {
     event->ignore();
@@ -27,9 +26,7 @@ void MainGame::closeEvent(QCloseEvent *event)
 void MainGame::on_actionQuit_triggered()
 {
     //closeEvent();
-
     //check if saved
-
     QApplication::quit(); //Quit without asking for now. TODO: Ask before quitting.
 }
 
@@ -42,9 +39,7 @@ void MainGame::on_actionSettings_triggered()
 
 void MainGame::on_SetRoute_clicked()
 {
-    SetRoute setroute;// = new setroute;
-    //setroute->show();
-    //this->hide(); //implement with show(); when closing setroute
+    SetRoute setroute;
     setroute.setModal(true);
     setroute.exec();
 }

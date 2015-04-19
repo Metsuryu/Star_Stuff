@@ -18,13 +18,13 @@ SOURCES += main.cpp\
     maingame.cpp \
     settings.cpp \
     setroute.cpp \
-    funcs.cpp
+    location.cpp
 
 HEADERS  += mainwindow.h \
     maingame.h \
     settings.h \
     setroute.h \
-    funcs.h
+    location.h
 
 FORMS    += mainwindow.ui \
     maingame.ui \

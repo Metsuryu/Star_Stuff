@@ -2,6 +2,8 @@
 #define SETROUTE_H
 
 #include <QDialog>
+const int matrixsize =10; //Size of the matrix
+const int bttnsz = 31; //Size of a button that can display one char.
 
 namespace Ui {
 class SetRoute;
@@ -14,14 +16,19 @@ class SetRoute : public QDialog
 public:
     explicit SetRoute(QWidget *parent = 0);
     ~SetRoute();
+    int energyrequired=0; //% Of energy required
 
 private slots:
-    void makemap();
 
-    void on_MakeMap_clicked();
+    void makemap();
+    void mapinfo ();
+
+
 
 private:
     Ui::SetRoute *ui;
+
+    QPushButton *mapbutton[matrixsize][matrixsize]; //Forward declaration of matrix of buttons
 };
 
 #endif // SETROUTE_H

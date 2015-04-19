@@ -1,11 +1,17 @@
 #include "setroute.h"
 #include "ui_setroute.h"
+#include "location.h"
+#include "iostream"
+#include "location.cpp"
 
 SetRoute::SetRoute(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::SetRoute)
 {
     ui->setupUi(this);
+    makemap();
+    ui->BAREnergyRequired->setValue(energyrequired);
+    //connect(mapbutton[1][1],SIGNAL(released()),this,SLOT(mapinfo()));
 }
 
 SetRoute::~SetRoute()
@@ -19,30 +25,38 @@ SetRoute::~SetRoute()
 
 //********************Creating Map********************//
 
-void SetRoute::makemap(){
+void SetRoute::makemap(){ //TODO: Buttons do nothing for now, add functionality to buttons.
 
-    //********************Creating matrix of buttons******************************//
-    const int matrixsize =4; //Size of the matrix
-    const int bttnsz = 31; //Size of a button that can display one char.
-    QPushButton* mapbutton[matrixsize][matrixsize];
-    //  QGridLayout *grly = new QGridLayout;
+    //********************Matrix of buttons***************************//
+
+    //QPushButton *mapbutton[matrixsize][matrixsize];
 
     for (int i=0; i<=matrixsize-1; i++)//Fill map
     {{for (int j=0;j<=matrixsize-1;j++)
-            {mapbutton[i][j] = new QPushButton("x",ui->MapFrame);
+            {
+                mapbutton[i][j] = new QPushButton("p",ui->MapFrame);
                 mapbutton[i][j]->setMaximumSize(bttnsz,bttnsz);
-                // grly->addWidget(mapbutton[i][j]);
-                mapbutton[i][j]->move(40*i,40*j); //This does not add the buttons to the layout, but it is a grid.
-                //ui->MapFrame->layout()->addWidget(mapbutton[i][j]); //MapLayout is the name of the layout of MapFrame this is equivalent to the following line
-                //ui->MapLayout->addWidget(mapbutton[i][j]); //This adds the buttons to the layout, but in a vertical line, not a grid.
+                mapbutton[i][j]->setMinimumSize(bttnsz,bttnsz);
+                connect(mapbutton[i][j],SIGNAL(released()),this,SLOT(mapinfo()));
+                ui->MapLayout->addWidget(mapbutton[i][j],i,j);
                 mapbutton[i][j]->show();
             }
         }}
 }
+//********************Map Created*************************************//
+
+//Make function to fill values of map
 
 
 
-void SetRoute::on_MakeMap_clicked()
+void SetRoute::mapinfo() //TODO: Remove test code and show actual informations for each location
 {
-    makemap();    
+    energyrequired=42; //% Of energy required
+    ui->BAREnergyRequired->setValue(energyrequired);
+    //***//
+    using namespace std;
+    cout << loc->id_val()<<loc->energy_required_val()<<loc->quest_val()<<loc->visitedbefore_val()<<"\n";
+    cout << loc1->id_val()<<loc1->energy_required_val()<<loc1->quest_val()<<loc1->visitedbefore_val()<<"\n";
+
 }
+
