@@ -3,6 +3,18 @@
 
 #include <QDialog>
 #include "mainwindow.h"
+#include "QMediaPlayer"
+
+//**Settings variables**//
+
+extern bool quit_confirm;
+extern bool musicplaying;
+extern QMediaPlayer *music;
+extern int volume;
+extern bool eng;
+extern bool ita;
+
+//**********************//
 
 namespace Ui {
 class Settings;
@@ -18,13 +30,21 @@ public:
 
 private slots:
 
-    void on_PlayMusic_clicked();
-
     void on_OKCancel_rejected();
 
     void on_OKCancel_accepted();
 
     void on_ChangeMain_clicked();
+
+    void on_CheckBox_QuitConfirmation_toggled(bool checked);
+
+    void on_CheckBox_Music_released();
+
+    void on_Slider_Music_valueChanged(int value);
+
+    void on_EngRadioButton_toggled(bool checked);
+
+    void on_ItaRadioButton_toggled(bool checked);
 
 signals:
 

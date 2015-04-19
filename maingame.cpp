@@ -2,6 +2,7 @@
 #include "ui_maingame.h"
 #include "settings.h"
 #include "setroute.h"
+#include "QMessageBox"
 
 MainGame::MainGame(QWidget *parent) :
     QMainWindow(parent),
@@ -15,13 +16,39 @@ MainGame::~MainGame()
     delete ui;
 }
 
-//bool unsaved(); //TODO: Implement this to check if there is unsaved data and use it on closeEvent();
+//TODO: option to confirm quit
 
-void MainGame::closeEvent(QCloseEvent *event)
-{
+void MainGame::closeEvent(QCloseEvent *event) //Asks the user for confirmation to quit.
+{   
     event->ignore();
-    QApplication::quit(); //Quit without asking for now. TODO: Ask before quitting.
+    if(quit_confirm)
+    {
+    QMessageBox unsaved_alert;//TODO: Have option to disable quit warning.
+    unsaved_alert.setText("Are you sure you want to quit?");
+    unsaved_alert.setInformativeText("Do you want to save your progress or discard all changes and quit?");
+    unsaved_alert.setWindowTitle("Are you sure?");
+    unsaved_alert.setStandardButtons(QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel);
+    unsaved_alert.setIcon(QMessageBox::Question);
+    int saveprompt = unsaved_alert.exec();
+
+    switch (saveprompt)
+    {
+      case QMessageBox::Save:
+          // TODO: Add save function
+          break;
+      case QMessageBox::Discard:
+          QApplication::quit();
+          break;
+      case QMessageBox::Cancel:
+          // Do nothing.
+          break;
+      default:
+          break;
+    }
+    }else{QApplication::quit();}
 }
+
+
 
 void MainGame::on_actionQuit_triggered()
 {
