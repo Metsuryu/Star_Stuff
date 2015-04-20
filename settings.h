@@ -4,6 +4,7 @@
 #include <QDialog>
 #include "mainwindow.h"
 #include "QMediaPlayer"
+#include "QString"
 
 //**Settings variables**//
 
@@ -13,6 +14,8 @@ extern QMediaPlayer *music;
 extern int volume;
 extern bool eng;
 extern bool ita;
+extern void save_settings();
+extern void load_settings();
 
 //**********************//
 

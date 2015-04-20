@@ -23,7 +23,7 @@ void MainGame::closeEvent(QCloseEvent *event) //Asks the user for confirmation t
     event->ignore();
     if(quit_confirm)
     {
-    QMessageBox unsaved_alert;//TODO: Have option to disable quit warning.
+    QMessageBox unsaved_alert;
     unsaved_alert.setText("Are you sure you want to quit?");
     unsaved_alert.setInformativeText("Do you want to save your progress or discard all changes and quit?");
     unsaved_alert.setWindowTitle("Are you sure?");
@@ -40,7 +40,7 @@ void MainGame::closeEvent(QCloseEvent *event) //Asks the user for confirmation t
           QApplication::quit();
           break;
       case QMessageBox::Cancel:
-          // Do nothing.
+          // Close prompt.
           break;
       default:
           break;
