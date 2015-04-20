@@ -1,7 +1,7 @@
 # Star Stuff
 Space-themed RPG
 
-Version 0.2003
+Version 0.2004
 
 This is my first actual project in C++ using Qt. 
 It's supposed to be as simple as possible, with a fast and not too complicated gameplay, and an interesting story.
