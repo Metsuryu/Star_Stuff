@@ -227,7 +227,7 @@ selected location</string>
       <bool>false</bool>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(203, 250, 255);</string>
+      <string notr="true">border-color: rgb(0, 0, 0);</string>
      </property>
      <layout class="QGridLayout" name="MapLayout"/>
     </widget>

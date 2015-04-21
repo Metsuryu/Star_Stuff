@@ -16,8 +16,8 @@ class SetRoute : public QDialog
 public:
     explicit SetRoute(QWidget *parent = 0);
     ~SetRoute();
-    int energyrequired=0; //% Of energy required
-
+    int energy_required=0; //% Of energy required
+    int energy_available=0;//% Of energy available
 private slots:
 
     void makemap();
