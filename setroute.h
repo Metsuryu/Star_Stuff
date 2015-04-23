@@ -27,7 +27,7 @@ private slots:
 private:
     Ui::SetRoute *ui;
 
-    //QPushButton *mapbutton[matrixsize][matrixsize]; //Forward declaration of matrix of buttons
+   //QPushButton *mapbutton[matrixsize][matrixsize]; //Forward declaration of matrix of buttons
     location_PushButton *lpb[matrixsize][matrixsize]; //This has "loc" as a public member.
 };
 

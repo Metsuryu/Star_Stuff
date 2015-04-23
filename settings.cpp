@@ -38,6 +38,7 @@ bool ita=false;
 //int hull
 //int gold
 //string location
+int current_sector = 1;
 //Vector<string> inventory
 //int inventory capacity
 //int fuel capacity

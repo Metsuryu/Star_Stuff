@@ -6,8 +6,10 @@
 
 class location_PushButton : public QPushButton
 {
+
 public:
     location loc;
+
 };
 
 #endif // LOCATION_PUSHBUTTON_H

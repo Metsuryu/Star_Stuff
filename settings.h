@@ -16,7 +16,7 @@ extern bool eng;
 extern bool ita;
 extern void save_settings();
 extern void load_settings();
-
+extern int current_sector;
 //**********************//
 
 namespace Ui {
