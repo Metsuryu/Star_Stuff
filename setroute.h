@@ -2,6 +2,7 @@
 #define SETROUTE_H
 
 #include <QDialog>
+#include "location_pushbutton.h"
 const int matrixsize =10; //Size of the matrix
 const int bttnsz = 31; //Size of a button that can display one char.
 
@@ -21,14 +22,13 @@ public:
 private slots:
 
     void makemap();
-    void mapinfo ();
-
-
+    void mapinfo();
 
 private:
     Ui::SetRoute *ui;
 
-    QPushButton *mapbutton[matrixsize][matrixsize]; //Forward declaration of matrix of buttons
+    //QPushButton *mapbutton[matrixsize][matrixsize]; //Forward declaration of matrix of buttons
+    location_PushButton *lpb[matrixsize][matrixsize]; //This has "loc" as a public member.
 };
 
 #endif // SETROUTE_H
