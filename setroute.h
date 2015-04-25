@@ -3,8 +3,13 @@
 
 #include <QDialog>
 #include "location_pushbutton.h"
+#include "settings.h"
+#include "QMessageBox"
+
 const int matrixsize =10; //Size of the matrix
 const int bttnsz = 31; //Size of a button that can display one char.
+const int ener_cost = 10;
+extern void not_enough_energy_message();
 
 namespace Ui {
 class SetRoute;
@@ -17,8 +22,9 @@ class SetRoute : public QDialog
 public:
     explicit SetRoute(QWidget *parent = 0);
     ~SetRoute();
-    int energy_required=0; //% Of energy required
-    int energy_available=0;//% Of energy available
+    double energy_required=0.0; //% Of energy required
+    double energy_available=0.0;//% Of energy available
+
 private slots:
 
     void makemap();

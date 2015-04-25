@@ -29,20 +29,24 @@ Settings::~Settings()
 
 //**Settings variables**// //TODO: If there is a savefile, read settings from it at startup.
 QMediaPlayer *music = new QMediaPlayer;
-bool quit_confirm=false;
+bool quit_confirm = false;//Confirm before quitting setting.
 bool musicplaying = false;
-int volume=42;
-bool eng=true;
-bool ita=false;
-//int energy
-//int hull
-//int gold
-//string location
+int volume = 42;
+bool eng = true;
+bool ita = false;
+
+int hull = 89;
+int gold = 10;
+QString location = "Space Station 1";//Temp. name
 int current_sector = 1;
-//Vector<string> inventory
-//int inventory capacity
-//int fuel capacity
-//int total active drones
+//vector<string> inventory;
+int inventory_capacity = 100;
+double energy = 42.0;
+double energy_capacity = 100.0;
+int drones_active_total = 0;
+int inventory_load = 0;
+int distance = 0;//Distance in tiles from current location
+
 enum location_event
 {
     ASTEROID = 0,
@@ -53,7 +57,6 @@ enum location_event
     STAR = 5,
     SPACE_STATION = 6
 };
-
 
 //**Save settings**// //TODO: Change filename to settings.config or something similar
 void save_settings()

@@ -9,6 +9,9 @@ MainGame::MainGame(QWidget *parent) :
     ui(new Ui::MainGame)
 {
     ui->setupUi(this);
+    ui->BAREnergy->setValue(energy);
+    ui->BARHull->setValue(hull);
+
 }
 
 MainGame::~MainGame()
@@ -64,10 +67,9 @@ void MainGame::on_actionSettings_triggered()
     settings.exec();
 }
 
-void MainGame::on_SetRoute_clicked()
+void MainGame::on_BTSetRoute_clicked()
 {
     SetRoute setroute;
     setroute.setModal(true);
     setroute.exec();
 }
-

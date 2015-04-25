@@ -20,7 +20,7 @@ private slots:
 
     void on_actionSettings_triggered();
 
-    void on_SetRoute_clicked();
+    void on_BTSetRoute_clicked();
 
 private:
     Ui::MainGame *ui;

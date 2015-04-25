@@ -12,6 +12,8 @@ SetRoute::SetRoute(QWidget *parent) :
     ui(new Ui::SetRoute)
 {
     ui->setupUi(this);
+    energy_available = (energy*100)/energy_capacity;
+    ui->BAREnergyAvailable->setValue(energy_available);
     makemap();
 }
 
@@ -28,14 +30,10 @@ SetRoute::~SetRoute()
 
 void SetRoute::makemap()//TODO: Buttons do nothing for now, add functionality to buttons.
 {
-
     //********************Matrix of buttons***************************//
-
-
 
 //** Enable to create map of normal pushbuttons **//
     //DO NOT ENABLE while other matrix is enabled
-
 /*
 //QPushButton *mapbutton[matrixsize][matrixsize]; //This is in the header.
     int counter = 1;
@@ -64,7 +62,8 @@ void SetRoute::makemap()//TODO: Buttons do nothing for now, add functionality to
                 lpb[i][j]->setMinimumSize(bttnsz,bttnsz);
                 lpb[i][j]->setText(QString::number(counter));
                 lpb[i][j]->loc.id_setval(counter);
-                lpb[i][j]->loc.energy_required_setval(2);//TODO: Calculate energy_required for each location
+                distance=abs(lpb[i][j]->loc.id_val()-current_sector);
+                lpb[i][j]->loc.energy_required_setval((inventory_load+ener_cost)*distance);//TODO: Calculate energy_required for each location
                 connect(lpb[i][j],SIGNAL(released()),this,SLOT(mapinfo()));
                 ui->MapLayout->addWidget(lpb[i][j],i,j);
                 lpb[i][j]->show();
@@ -89,8 +88,11 @@ void SetRoute::mapinfo() //TODO: Remove this test code and show actual informati
     {{for (int j=0;j<=matrixsize-1;j++)
             {if(lpb[i][j] == sender())
                 {
+                    energy_required=(lpb[i][j]->loc.energy_required_val()*100)/energy_available;
+                    if(energy_required>energy_available){not_enough_energy_message();}
                     ui->BTJumpToLocation->setText("Jump to\nsector " + QString::number(lpb[i][j]->loc.id_val()));
-                    ui->BAREnergyRequired->setValue(lpb[i][j]->loc.energy_required_val());
+                    ui->BAREnergyRequired->setValue(energy_required);
+
                     //TODO: Complete info
                 }//end block of if
             }//end if
@@ -101,4 +103,14 @@ void SetRoute::mapinfo() //TODO: Remove this test code and show actual informati
     //ui->BAREnergyRequired->setValue(energy_required);
     //ui->BAREnergyAvailable->setValue(energy_available);
 
+}
+
+void not_enough_energy_message()
+{
+QMessageBox nnem;
+nnem.setText("Not enough energy to jump to this destination.");
+nnem.setInformativeText("Please select another destination.");
+nnem.setWindowTitle("Not enough energy");
+nnem.setStandardButtons(QMessageBox::Ok);
+nnem.exec();
 }

@@ -17,6 +17,17 @@ extern bool ita;
 extern void save_settings();
 extern void load_settings();
 extern int current_sector;
+
+extern int hull;
+extern int gold;
+//QString location;
+//vector<string> inventory;
+extern int inventory_capacity;
+extern double energy;
+extern double energy_capacity;
+extern int drones_active_total;
+extern int inventory_load;
+extern int distance;
 //**********************//
 
 namespace Ui {

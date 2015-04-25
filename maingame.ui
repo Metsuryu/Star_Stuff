@@ -16,21 +16,21 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
-     <widget class="QPushButton" name="Marketplace">
+     <widget class="QPushButton" name="BTMarketPlace">
       <property name="text">
        <string>Marketplace</string>
       </property>
      </widget>
     </item>
     <item row="0" column="1">
-     <widget class="QPushButton" name="Inventory">
+     <widget class="QPushButton" name="BTInventory">
       <property name="text">
        <string>Inventory</string>
       </property>
      </widget>
     </item>
     <item row="0" column="2">
-     <widget class="QPushButton" name="SetRoute">
+     <widget class="QPushButton" name="BTSetRoute">
       <property name="text">
        <string>Set Route</string>
       </property>
@@ -59,7 +59,7 @@
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_3">
        <item>
-        <widget class="QPushButton" name="EnergyButton">
+        <widget class="QPushButton" name="BTEnergy">
          <property name="maximumSize">
           <size>
            <width>87</width>
@@ -81,7 +81,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QProgressBar" name="EnergyBar">
+        <widget class="QProgressBar" name="BAREnergy">
          <property name="cursor">
           <cursorShape>ArrowCursor</cursorShape>
          </property>
@@ -109,14 +109,14 @@
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
-        <widget class="QPushButton" name="HullButton">
+        <widget class="QPushButton" name="BTHull">
          <property name="text">
           <string>Hull</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QProgressBar" name="HullBar">
+        <widget class="QProgressBar" name="BARHull">
          <property name="cursor">
           <cursorShape>ArrowCursor</cursorShape>
          </property>
@@ -138,14 +138,14 @@
       </property>
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
-        <widget class="QPushButton" name="Gold">
+        <widget class="QPushButton" name="BTGold">
          <property name="text">
           <string>Gold</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="GoldValue">
+        <widget class="QLabel" name="LBGold">
          <property name="text">
           <string>0</string>
          </property>
@@ -157,7 +157,7 @@
       </layout>
      </widget>
     </item>
-    <item row="1" column="0" colspan="3">
+    <item row="1" column="0" colspan="4">
      <widget class="QLabel" name="Graphics">
       <property name="text">
        <string/>
