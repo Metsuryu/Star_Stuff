@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>550</width>
+    <width>556</width>
     <height>559</height>
    </rect>
   </property>
@@ -129,8 +129,32 @@ selected location</string>
         <property name="whatsThis">
          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Amount of energy required to travel to this destination and return.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
+        <property name="styleSheet">
+         <string notr="true">QProgressBar{text-align: center;}</string>
+        </property>
+        <property name="maximum">
+         <number>100</number>
+        </property>
         <property name="value">
-         <number>24</number>
+         <number>0</number>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="textVisible">
+         <bool>true</bool>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="invertedAppearance">
+         <bool>false</bool>
+        </property>
+        <property name="textDirection">
+         <enum>QProgressBar::TopToBottom</enum>
+        </property>
+        <property name="format">
+         <string>%v%</string>
         </property>
        </widget>
       </item>
@@ -156,8 +180,14 @@ selected location</string>
           <height>21</height>
          </size>
         </property>
+        <property name="styleSheet">
+         <string notr="true">QProgressBar{text-align: center;}</string>
+        </property>
         <property name="value">
          <number>24</number>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </item>
@@ -192,6 +222,32 @@ selected location</string>
      </layout>
     </widget>
    </item>
+   <item row="1" column="1">
+    <widget class="QLabel" name="LBCurrentLocationValue">
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>13</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>Location</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QLabel" name="LBCurrentLocation">
+     <property name="maximumSize">
+      <size>
+       <width>90</width>
+       <height>13</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>Current Location:</string>
+     </property>
+    </widget>
+   </item>
    <item row="5" column="2">
     <widget class="QPushButton" name="BTAdditionalInfo">
      <property name="maximumSize">
@@ -202,20 +258,6 @@ selected location</string>
      </property>
      <property name="text">
       <string>Additional Info</string>
-     </property>
-    </widget>
-   </item>
-   <item row="1" column="1">
-    <widget class="QLabel" name="LBCurrentLocationValue">
-     <property name="text">
-      <string>Location</string>
-     </property>
-    </widget>
-   </item>
-   <item row="1" column="0">
-    <widget class="QLabel" name="LBCurrentLocation">
-     <property name="text">
-      <string>Current Location:</string>
      </property>
     </widget>
    </item>

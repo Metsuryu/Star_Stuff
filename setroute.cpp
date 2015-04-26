@@ -15,12 +15,18 @@ SetRoute::SetRoute(QWidget *parent) :
     energy_available = (energy*100)/energy_capacity;
     ui->BAREnergyAvailable->setValue(energy_available);
     makemap();
+    selected_location=current_sector;
+    ui->LBCurrentLocationValue->setText("Sector " + QString::number(current_sector));
 }
 
 SetRoute::~SetRoute()
 {
     delete ui;
 }
+
+bool not_enough_energy = false;
+double energy_required_value = 0.0;
+
 
 
 //Makes a map to choose a location to travel to.
@@ -70,6 +76,7 @@ void SetRoute::makemap()//TODO: Buttons do nothing for now, add functionality to
                 counter ++;
             }
         }}
+
 }//********************makemap() end******************//
 
 
@@ -78,39 +85,102 @@ void SetRoute::makemap()//TODO: Buttons do nothing for now, add functionality to
 
 void SetRoute::mapinfo() //TODO: Remove this test code and show actual informations for each location
 {
-/*    if(lpb[0][0] == sender())
-    {ui->BAREnergyRequired->setValue(lpb[0][0]->loc.energy_required_val());}
-    else if(lpb[0][1] == sender())
-    {ui->BAREnergyRequired->setValue(lpb[0][1]->loc.energy_required_val());}
-*/
 
     for (int i=0; i<=matrixsize-1; i++)
     {{for (int j=0;j<=matrixsize-1;j++)
             {if(lpb[i][j] == sender())
                 {
-                    energy_required=(lpb[i][j]->loc.energy_required_val()*100)/energy_available;
-                    if(energy_required>energy_available){not_enough_energy_message();}
+                    energy_required=(lpb[i][j]->loc.energy_required_val()*100)/energy_available; //Set energy_required value in %
+                    energy_required_value=lpb[i][j]->loc.energy_required_val();
+                    ui->BAREnergyRequired->setStyleSheet(greenbar);
+                    ui->BAREnergyRequired->setRange(0,100);
+                    not_enough_energy = false;
+
+                    if(lpb[i][j]->loc.energy_required_val()>energy_available)//Not enough energy
+                    {
+                        not_enough_energy = true;
+                        ui->BAREnergyRequired->setRange(0,energy_required); //TODO: Check that this works with energy_capacity values above 100
+                        ui->BAREnergyRequired->setStyleSheet(redbar);
+
+                    }
+
+                    selected_location = lpb[i][j]->loc.id_val();
                     ui->BTJumpToLocation->setText("Jump to\nsector " + QString::number(lpb[i][j]->loc.id_val()));
                     ui->BAREnergyRequired->setValue(energy_required);
 
-                    //TODO: Complete info
-                }//end block of if
-            }//end if
-        }//end for j
-    }//end for i
 
-    //energy_required=42; //% Of energy required
-    //ui->BAREnergyRequired->setValue(energy_required);
-    //ui->BAREnergyAvailable->setValue(energy_available);
-
+                }//TODO: Complete info
+            }
+        }
+    }
 }
 
-void not_enough_energy_message()
+void not_enough_energy_message()//TODO: Maybe play warning sound
 {
-QMessageBox nnem;
-nnem.setText("Not enough energy to jump to this destination.");
-nnem.setInformativeText("Please select another destination.");
-nnem.setWindowTitle("Not enough energy");
-nnem.setStandardButtons(QMessageBox::Ok);
-nnem.exec();
+    QMessageBox nnem;
+    nnem.setText("Not enough energy to jump to this destination.");
+    nnem.setInformativeText("Please select another destination.");
+    nnem.setWindowTitle("Not enough energy");
+    nnem.setStandardButtons(QMessageBox::Ok);
+    nnem.setDefaultButton(QMessageBox::Ok);
+    nnem.setIcon(QMessageBox::Information);
+    nnem.exec();
+}
+
+void already_here_message()//TODO: Maybe play warning sound
+{
+    QMessageBox ah;
+    ah.setText("This is your current location.");
+    ah.setInformativeText("Please select another destination.");
+    ah.setWindowTitle("You are already here.");
+    ah.setStandardButtons(QMessageBox::Ok);
+    ah.setDefaultButton(QMessageBox::Ok);
+    ah.setIcon(QMessageBox::Information);
+    ah.exec();
+}
+
+
+
+
+void SetRoute::on_BTJumpToLocation_clicked()
+{
+    if(not_enough_energy){not_enough_energy_message(); return;}
+    if(selected_location==current_sector){already_here_message(); return;}
+    //**JUMP**//
+    energy=energy-energy_required_value;
+    ui->BAREnergyAvailable->setValue(energy);
+    current_sector=selected_location;
+
+    switch (loc_event)//TODO: Write function for each case. TODO: Assign correct value to loc_event for each location
+    {
+    case location_event::ASTEROID:
+        break;
+    case location_event::ENEMY_SHIP:
+        break;
+    case location_event::FRIENDLY_SHIP:
+        break;
+    case location_event::COMMERCE_SHIP:
+        break;
+    case location_event::PLANET:
+        break;
+    case location_event::STAR:
+        break;
+    case location_event::SPACE_STATION:
+
+        break;
+
+    default:
+        //Should never reach default.
+        error_generic();
+        break;
+    }
+
+
+//TODO: Some animation or something to show you jumped
+SetRoute::close();
+}
+
+void SetRoute::on_BTCancel_clicked()
+{
+    SetRoute::close();
 }

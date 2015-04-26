@@ -3,6 +3,7 @@
 #include "mainwindow.h"
 #include <QFile>
 #include "QString"
+#include "QMessageBox"
 
 Settings::Settings(QWidget *parent) :
     QDialog(parent),
@@ -46,17 +47,10 @@ double energy_capacity = 100.0;
 int drones_active_total = 0;
 int inventory_load = 0;
 int distance = 0;//Distance in tiles from current location
-
-enum location_event
-{
-    ASTEROID = 0,
-    ENEMY_SHIP = 1,
-    FRIENDLY_SHIP = 2,
-    COMMERCE_SHIP = 3,
-    PLANET = 4,
-    STAR = 5,
-    SPACE_STATION = 6
-};
+QString redbar = "QProgressBar{text-align:center;} QProgressBar::chunk{background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0.119, stop:0.289773 rgba(255, 0, 0, 255), stop:1 rgba(255, 171, 171, 255));}";
+QString greenbar = "QProgressBar{text-align:center;}";
+int selected_location = 0;
+location_event loc_event = location_event::SPACE_STATION;
 
 //**Save settings**// //TODO: Change filename to settings.config or something similar
 void save_settings()
@@ -117,7 +111,7 @@ void Settings::on_CheckBox_QuitConfirmation_toggled(bool checked)
 }
 //*************//
 
-//***************Music***************//
+//***************Music***************// //TODO: Make a playlist and loop it.
 void Settings::on_CheckBox_Music_released()
 {
     if (musicplaying)
@@ -153,3 +147,15 @@ void Settings::on_ItaRadioButton_toggled(bool checked)
     eng=(!checked);
 }
 //***************//
+
+void error_generic()
+{
+    QMessageBox eg;
+    eg.setText("Something went wrong.");
+    eg.setInformativeText("An unexpected error has occurred.");
+    eg.setWindowTitle("Error.");
+    eg.setStandardButtons(QMessageBox::Ok);
+    eg.setDefaultButton(QMessageBox::Ok);
+    eg.setIcon(QMessageBox::Warning);
+    eg.exec();
+}

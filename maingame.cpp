@@ -72,4 +72,5 @@ void MainGame::on_BTSetRoute_clicked()
     SetRoute setroute;
     setroute.setModal(true);
     setroute.exec();
+    ui->BAREnergy->setValue(energy);
 }

@@ -28,6 +28,25 @@ extern double energy_capacity;
 extern int drones_active_total;
 extern int inventory_load;
 extern int distance;
+extern QString redbar;
+extern QString greenbar;
+extern int selected_location;
+extern void error_generic();
+
+
+enum class location_event
+{
+    ASTEROID = 0,
+    ENEMY_SHIP = 1,
+    FRIENDLY_SHIP = 2,
+    COMMERCE_SHIP = 3,
+    PLANET = 4,
+    STAR = 5,
+    SPACE_STATION = 6
+};
+
+extern location_event loc_event;
+
 //**********************//
 
 namespace Ui {

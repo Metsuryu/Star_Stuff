@@ -82,8 +82,23 @@
        </item>
        <item>
         <widget class="QProgressBar" name="BAREnergy">
+         <property name="minimumSize">
+          <size>
+           <width>100</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>100</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <property name="cursor">
           <cursorShape>ArrowCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">text-align: center;</string>
          </property>
          <property name="value">
           <number>55</number>
@@ -117,8 +132,23 @@
        </item>
        <item>
         <widget class="QProgressBar" name="BARHull">
+         <property name="minimumSize">
+          <size>
+           <width>100</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>100</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <property name="cursor">
           <cursorShape>ArrowCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">text-align: center;</string>
          </property>
          <property name="value">
           <number>55</number>

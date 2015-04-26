@@ -8,8 +8,10 @@
 
 const int matrixsize =10; //Size of the matrix
 const int bttnsz = 31; //Size of a button that can display one char.
-const int ener_cost = 10;
+const unsigned int ener_cost = 10;
 extern void not_enough_energy_message();
+extern void already_here_message();
+extern double energy_required_value;
 
 namespace Ui {
 class SetRoute;
@@ -29,6 +31,10 @@ private slots:
 
     void makemap();
     void mapinfo();
+
+    void on_BTJumpToLocation_clicked();
+
+    void on_BTCancel_clicked();
 
 private:
     Ui::SetRoute *ui;
