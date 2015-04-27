@@ -11,6 +11,7 @@ MainGame::MainGame(QWidget *parent) :
     ui->setupUi(this);
     ui->BAREnergy->setValue(energy);
     ui->BARHull->setValue(hull);
+    ui->LBLocation->setText("Sector "+ QString::number(current_sector));
 
 }
 
@@ -73,4 +74,5 @@ void MainGame::on_BTSetRoute_clicked()
     setroute.setModal(true);
     setroute.exec();
     ui->BAREnergy->setValue(energy);
+    ui->LBLocation->setText("Sector "+ QString::number(current_sector));
 }

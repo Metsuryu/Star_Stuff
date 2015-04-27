@@ -5,6 +5,7 @@
 #include "mainwindow.h"
 #include "QMediaPlayer"
 #include "QString"
+#include "initializer_list"
 
 //**Settings variables**//
 
@@ -32,6 +33,7 @@ extern QString redbar;
 extern QString greenbar;
 extern int selected_location;
 extern void error_generic();
+extern bool nemesis;
 
 
 enum class location_event
@@ -42,7 +44,15 @@ enum class location_event
     COMMERCE_SHIP = 3,
     PLANET = 4,
     STAR = 5,
-    SPACE_STATION = 6
+    SPACE_STATION = 6,
+    //Specials
+    BOSS1 = 7,
+    BOSS2 = 8,
+    BOSS3 = 9,
+    BOSS4 = 10,
+    FINAL_BOSS = 11,
+    QUEST = 12
+    //TODO: Maybe add other QUEST enums, or use just this one with a counter.
 };
 
 extern location_event loc_event;

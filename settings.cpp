@@ -51,6 +51,7 @@ QString redbar = "QProgressBar{text-align:center;} QProgressBar::chunk{backgroun
 QString greenbar = "QProgressBar{text-align:center;}";
 int selected_location = 0;
 location_event loc_event = location_event::SPACE_STATION;
+bool nemesis = false; //Is set to true if you are enemy with both factions
 
 //**Save settings**// //TODO: Change filename to settings.config or something similar
 void save_settings()

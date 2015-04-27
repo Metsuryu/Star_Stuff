@@ -19,14 +19,16 @@ SOURCES += main.cpp\
     settings.cpp \
     setroute.cpp \
     location.cpp \
-    location_pushbutton.cpp
+    location_pushbutton.cpp \
+    initializer_lists.cpp
 
 HEADERS  += mainwindow.h \
     maingame.h \
     settings.h \
     setroute.h \
     location.h \
-    location_pushbutton.h
+    location_pushbutton.h \
+    initializer_lists.h
 
 FORMS    += mainwindow.ui \
     maingame.ui \
