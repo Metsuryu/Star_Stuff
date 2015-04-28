@@ -43,3 +43,6 @@ RESOURCES += \
 #
 # win32:RC_ICONS += ssicon.ico
 #-------------------------------
+
+DISTFILES += \
+    ../../Resources/Images/My ships/Spce Station.jpg

@@ -1,6 +1,7 @@
 <RCC>
     <qresource prefix="/pics">
         <file>phgfx.jpg</file>
+        <file>space station.jpg</file>
     </qresource>
     <qresource prefix="/music">
         <file>Vedrim_Desperado.mp3</file>
