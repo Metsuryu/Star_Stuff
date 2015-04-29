@@ -3,6 +3,12 @@
 
 #include <QMainWindow>
 
+void jump();
+
+
+
+
+
 namespace Ui {
 class MainGame;
 }

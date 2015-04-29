@@ -73,6 +73,66 @@ void MainGame::on_BTSetRoute_clicked()
     SetRoute setroute;
     setroute.setModal(true);
     setroute.exec();
+
     ui->BAREnergy->setValue(energy);
     ui->LBLocation->setText("Sector "+ QString::number(current_sector));
+    jump();
+    ui->textBrowser->append("Test ");
+}
+
+
+
+void jump()
+{
+    switch (loc_event)//TODO: Write function for each case. TODO: Change grapics for each location
+    {
+    case location_event::SPACE_STATION:
+        qDebug() << "Space station graphics";
+        break;
+    case location_event::ASTEROID:
+        qDebug() << "Asteroid graphics";
+        break;
+    case location_event::ENEMY_SHIP:
+        qDebug() << "Enemy Ship graphics";
+        break;
+    case location_event::FRIENDLY_SHIP:
+        qDebug() << "Friendly Ship graphics";
+        break;
+    case location_event::PLANET:
+        qDebug() << "Planet graphics";
+        break;
+    case location_event::STAR:
+        qDebug() << "Star graphics";
+        break;
+    case location_event::BOSS1:
+        qDebug() << "Boss 1 graphics";
+        break;
+    case location_event::BOSS2:
+        qDebug() << "Boss 2 graphics";
+        break;
+    case location_event::BOSS3:
+        qDebug() << "Boss 3 graphics";
+        break;
+    case location_event::BOSS4:
+        qDebug() << "Boss 4 graphics";
+        break;
+    case location_event::FINAL_BOSS:
+        qDebug() << "Final Boss graphics";
+        break;
+    case location_event::COMMERCE_SHIP:
+        qDebug() << "Commerce ship graphics";
+        break;
+    case location_event::NO_JUMP:
+        qDebug() << "No Jump";
+        return;
+        break;
+        //TODO: Add QUEST case when implementing quests
+    default:
+        //Should never reach default.
+        error_generic();//TODO: Write better errors
+        break;
+    }
+
+
+    qDebug() << "Jump Successful";
 }

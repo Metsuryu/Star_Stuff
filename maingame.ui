@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>401</width>
-    <height>527</height>
+    <width>465</width>
+    <height>633</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -21,36 +21,105 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0">
-     <widget class="QPushButton" name="BTMarketPlace">
-      <property name="text">
-       <string>Marketplace</string>
+    <item row="6" column="2" colspan="4">
+     <widget class="QFrame" name="FrameHull">
+      <property name="maximumSize">
+       <size>
+        <width>120</width>
+        <height>150</height>
+       </size>
       </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QPushButton" name="BTHull">
+         <property name="maximumSize">
+          <size>
+           <width>100</width>
+           <height>23</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Hull</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QProgressBar" name="BARHull">
+         <property name="minimumSize">
+          <size>
+           <width>100</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>100</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="cursor">
+          <cursorShape>ArrowCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">text-align: center;</string>
+         </property>
+         <property name="value">
+          <number>55</number>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </item>
-    <item row="0" column="1">
-     <widget class="QPushButton" name="BTInventory">
-      <property name="text">
-       <string>Inventory</string>
+    <item row="6" column="7">
+     <widget class="QFrame" name="FrameGold">
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
       </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QPushButton" name="BTGold">
+         <property name="maximumSize">
+          <size>
+           <width>75</width>
+           <height>23</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Gold</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="LBGold">
+         <property name="maximumSize">
+          <size>
+           <width>75</width>
+           <height>21</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>0</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </item>
-    <item row="0" column="2">
-     <widget class="QPushButton" name="BTSetRoute">
-      <property name="text">
-       <string>Set Route</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="3">
-     <widget class="QLabel" name="LBLocation">
-      <property name="text">
-       <string>Location</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="0">
-     <widget class="QFrame" name="EnergyFrame">
+    <item row="6" column="0">
+     <widget class="QFrame" name="FrameEnergy">
       <property name="maximumSize">
        <size>
         <width>120</width>
@@ -68,8 +137,8 @@
         <widget class="QPushButton" name="BTEnergy">
          <property name="maximumSize">
           <size>
-           <width>87</width>
-           <height>16777215</height>
+           <width>100</width>
+           <height>23</height>
           </size>
          </property>
          <property name="toolTip">
@@ -114,91 +183,64 @@
       </layout>
      </widget>
     </item>
-    <item row="2" column="1" colspan="2">
-     <widget class="QFrame" name="frame_2">
+    <item row="0" column="0">
+     <widget class="QPushButton" name="BTMarketPlace">
       <property name="maximumSize">
        <size>
         <width>120</width>
-        <height>150</height>
+        <height>23</height>
        </size>
       </property>
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
+      <property name="text">
+       <string>Marketplace</string>
       </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-      <layout class="QVBoxLayout" name="verticalLayout_2">
-       <item>
-        <widget class="QPushButton" name="BTHull">
-         <property name="text">
-          <string>Hull</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QProgressBar" name="BARHull">
-         <property name="minimumSize">
-          <size>
-           <width>100</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>100</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="cursor">
-          <cursorShape>ArrowCursor</cursorShape>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">text-align: center;</string>
-         </property>
-         <property name="value">
-          <number>55</number>
-         </property>
-        </widget>
-       </item>
-      </layout>
      </widget>
     </item>
-    <item row="2" column="3">
-     <widget class="QFrame" name="frame">
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
+    <item row="0" column="2">
+     <widget class="QPushButton" name="BTInventory">
+      <property name="maximumSize">
+       <size>
+        <width>75</width>
+        <height>23</height>
+       </size>
       </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
+      <property name="text">
+       <string>Inventory</string>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout">
-       <item>
-        <widget class="QPushButton" name="BTGold">
-         <property name="text">
-          <string>Gold</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="LBGold">
-         <property name="text">
-          <string>0</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-         </property>
-        </widget>
-       </item>
-      </layout>
      </widget>
     </item>
-    <item row="1" column="0" colspan="4">
+    <item row="0" column="5">
+     <widget class="QPushButton" name="BTSetRoute">
+      <property name="maximumSize">
+       <size>
+        <width>75</width>
+        <height>23</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>Set Route</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="7">
+     <widget class="QLabel" name="LBLocation">
+      <property name="text">
+       <string>Location</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0" colspan="8">
      <widget class="QLabel" name="Graphics">
       <property name="minimumSize">
        <size>
         <width>383</width>
         <height>383</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>60000</width>
+        <height>6000</height>
        </size>
       </property>
       <property name="styleSheet">
@@ -211,13 +253,52 @@
        <pixmap resource="res.qrc">:/pics/space station.jpg</pixmap>
       </property>
       <property name="scaledContents">
-       <bool>true</bool>
+       <bool>false</bool>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
       </property>
       <property name="wordWrap">
        <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="0">
+     <widget class="QLineEdit" name="lineEdit">
+      <property name="minimumSize">
+       <size>
+        <width>40</width>
+        <height>0</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0" colspan="8">
+     <widget class="QTextBrowser" name="textBrowser"/>
+    </item>
+    <item row="5" column="2">
+     <widget class="QPushButton" name="BTClearAll">
+      <property name="maximumSize">
+       <size>
+        <width>50</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>Clear all</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="1">
+     <widget class="QPushButton" name="BTEnter">
+      <property name="maximumSize">
+       <size>
+        <width>40</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>Enter</string>
       </property>
      </widget>
     </item>
@@ -228,7 +309,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>401</width>
+     <width>465</width>
      <height>21</height>
     </rect>
    </property>
@@ -320,5 +401,22 @@
  <resources>
   <include location="res.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>BTClearAll</sender>
+   <signal>clicked()</signal>
+   <receiver>textBrowser</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>216</x>
+     <y>535</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>211</x>
+     <y>485</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

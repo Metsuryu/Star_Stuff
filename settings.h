@@ -51,7 +51,8 @@ enum class location_event
     BOSS3 = 9,
     BOSS4 = 10,
     FINAL_BOSS = 11,
-    QUEST = 12
+    NO_JUMP = 12,
+    QUEST = 13
     //TODO: Maybe add other QUEST enums, or use just this one with a counter.
 };
 

@@ -50,7 +50,7 @@ int distance = 0;//Distance in tiles from current location
 QString redbar = "QProgressBar{text-align:center;} QProgressBar::chunk{background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:0, y2:0.119, stop:0.289773 rgba(255, 0, 0, 255), stop:1 rgba(255, 171, 171, 255));}";
 QString greenbar = "QProgressBar{text-align:center;}";
 int selected_location = 0;
-location_event loc_event = location_event::SPACE_STATION;
+location_event loc_event = location_event::NO_JUMP;
 bool nemesis = false; //Is set to true if you are enemy with both factions
 
 //**Save settings**// //TODO: Change filename to settings.config or something similar
@@ -149,8 +149,8 @@ void Settings::on_ItaRadioButton_toggled(bool checked)
 }
 //***************//
 
-void error_generic()
-{
+void error_generic()//TODO: Use only until there are better errors available.
+{    
     QMessageBox eg;
     eg.setText("Something went wrong.");
     eg.setInformativeText("An unexpected error has occurred.");
@@ -160,3 +160,5 @@ void error_generic()
     eg.setIcon(QMessageBox::Warning);
     eg.exec();
 }
+
+

@@ -1,4 +1,4 @@
-#include "setroute.h"
+ #include "setroute.h"
 #include "ui_setroute.h"
 #include "location.h"
 #include "location.cpp"
@@ -157,8 +157,8 @@ void SetRoute::on_BTJumpToLocation_clicked()
     ui->BAREnergyAvailable->setValue(energy);
     current_sector=selected_location;
 
-    switch (loc_event)//TODO: Write function for each case. TODO: Assign correct value to loc_event for each location
-    {
+    switch (loc_event)//TODO: Write function for each case. TODO: Play sound and have option to disable sfx
+    {//TODO: Put cases in order of most common>less common
     case location_event::SPACE_STATION:
         qDebug() << "Space station";
         break;
@@ -209,6 +209,7 @@ void SetRoute::on_BTJumpToLocation_clicked()
 
 void SetRoute::on_BTCancel_clicked()
 {
+    loc_event=location_event::NO_JUMP;
     SetRoute::close();
 }
 
