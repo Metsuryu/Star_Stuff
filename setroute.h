@@ -6,6 +6,7 @@
 #include "settings.h"
 #include "QMessageBox"
 #include "initializer_list"
+#include "QSoundEffect"
 
 const int matrixsize =10; //Size of the matrix
 const int bttnsz = 31; //Size of a button that can display one char.
@@ -13,6 +14,8 @@ const unsigned int ener_cost = 10;
 extern void not_enough_energy_message();
 extern void already_here_message();
 extern double energy_required_value;
+
+extern QSoundEffect *se_warp;
 
 
 namespace Ui {

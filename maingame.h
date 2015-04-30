@@ -2,11 +2,7 @@
 #define MAINGAME_H
 
 #include <QMainWindow>
-
-void jump();
-
-
-
+#include <QString>
 
 
 namespace Ui {
@@ -27,6 +23,8 @@ private slots:
     void on_actionSettings_triggered();
 
     void on_BTSetRoute_clicked();
+
+    void jump();
 
 private:
     Ui::MainGame *ui;

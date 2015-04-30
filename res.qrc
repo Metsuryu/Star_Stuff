@@ -1,9 +1,12 @@
 <RCC>
     <qresource prefix="/pics">
-        <file>phgfx.jpg</file>
-        <file>space station.jpg</file>
+        <file>img/Spaceship stars 200px.jpg</file>
+        <file>img/SpaceStation 383.jpg</file>
     </qresource>
     <qresource prefix="/music">
-        <file>Vedrim_Desperado.mp3</file>
+        <file>sfx/Vedrim_Desperado.mp3</file>
+    </qresource>
+    <qresource prefix="/sfx">
+        <file>sfx/Warp sound.wav</file>
     </qresource>
 </RCC>

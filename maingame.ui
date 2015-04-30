@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>465</width>
-    <height>633</height>
+    <width>500</width>
+    <height>653</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -21,63 +21,20 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="6" column="2" colspan="4">
-     <widget class="QFrame" name="FrameHull">
+    <item row="5" column="4">
+     <widget class="QPushButton" name="BTClearAll">
       <property name="maximumSize">
        <size>
-        <width>120</width>
-        <height>150</height>
+        <width>50</width>
+        <height>16777215</height>
        </size>
       </property>
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
+      <property name="text">
+       <string>Clear all</string>
       </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-      <layout class="QVBoxLayout" name="verticalLayout_2">
-       <item>
-        <widget class="QPushButton" name="BTHull">
-         <property name="maximumSize">
-          <size>
-           <width>100</width>
-           <height>23</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>Hull</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QProgressBar" name="BARHull">
-         <property name="minimumSize">
-          <size>
-           <width>100</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>100</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="cursor">
-          <cursorShape>ArrowCursor</cursorShape>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">text-align: center;</string>
-         </property>
-         <property name="value">
-          <number>55</number>
-         </property>
-        </widget>
-       </item>
-      </layout>
      </widget>
     </item>
-    <item row="6" column="7">
+    <item row="9" column="15">
      <widget class="QFrame" name="FrameGold">
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
@@ -86,6 +43,21 @@
        <enum>QFrame::Raised</enum>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
        <item>
         <widget class="QPushButton" name="BTGold">
          <property name="maximumSize">
@@ -118,71 +90,6 @@
       </layout>
      </widget>
     </item>
-    <item row="6" column="0">
-     <widget class="QFrame" name="FrameEnergy">
-      <property name="maximumSize">
-       <size>
-        <width>120</width>
-        <height>70</height>
-       </size>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-      <layout class="QVBoxLayout" name="verticalLayout_3">
-       <item>
-        <widget class="QPushButton" name="BTEnergy">
-         <property name="maximumSize">
-          <size>
-           <width>100</width>
-           <height>23</height>
-          </size>
-         </property>
-         <property name="toolTip">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Click for detailed information about fuel.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-         </property>
-         <property name="toolTipDuration">
-          <number>-1</number>
-         </property>
-         <property name="styleSheet">
-          <string notr="true"/>
-         </property>
-         <property name="text">
-          <string>Energy</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QProgressBar" name="BAREnergy">
-         <property name="minimumSize">
-          <size>
-           <width>100</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>100</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="cursor">
-          <cursorShape>ArrowCursor</cursorShape>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">text-align: center;</string>
-         </property>
-         <property name="value">
-          <number>55</number>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-    </item>
     <item row="0" column="0">
      <widget class="QPushButton" name="BTMarketPlace">
       <property name="maximumSize">
@@ -196,7 +103,7 @@
       </property>
      </widget>
     </item>
-    <item row="0" column="2">
+    <item row="0" column="7">
      <widget class="QPushButton" name="BTInventory">
       <property name="maximumSize">
        <size>
@@ -209,7 +116,7 @@
       </property>
      </widget>
     </item>
-    <item row="0" column="5">
+    <item row="0" column="10">
      <widget class="QPushButton" name="BTSetRoute">
       <property name="maximumSize">
        <size>
@@ -222,14 +129,14 @@
       </property>
      </widget>
     </item>
-    <item row="0" column="7">
+    <item row="0" column="15">
      <widget class="QLabel" name="LBLocation">
       <property name="text">
        <string>Location</string>
       </property>
      </widget>
     </item>
-    <item row="1" column="0" colspan="8">
+    <item row="1" column="0" colspan="16">
      <widget class="QLabel" name="Graphics">
       <property name="minimumSize">
        <size>
@@ -244,13 +151,13 @@
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.159091 rgba(0, 0, 0, 255), stop:1 rgba(126, 126, 126, 255));</string>
+       <string notr="true">background-color: rgb(113, 113, 113);</string>
       </property>
       <property name="text">
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="res.qrc">:/pics/space station.jpg</pixmap>
+       <pixmap resource="res.qrc">:/pics/img/SpaceStation 383.jpg</pixmap>
       </property>
       <property name="scaledContents">
        <bool>false</bool>
@@ -263,33 +170,195 @@
       </property>
      </widget>
     </item>
-    <item row="5" column="0">
+    <item row="3" column="0" colspan="16">
+     <widget class="QTextBrowser" name="textBrowser"/>
+    </item>
+    <item row="9" column="0" colspan="8">
+     <widget class="QFrame" name="frame">
+      <property name="minimumSize">
+       <size>
+        <width>259</width>
+        <height>90</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>259</width>
+        <height>90</height>
+       </size>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <item row="0" column="0">
+        <widget class="QFrame" name="FrameEnergy">
+         <property name="maximumSize">
+          <size>
+           <width>120</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_3">
+          <item>
+           <widget class="QPushButton" name="BTEnergy">
+            <property name="minimumSize">
+             <size>
+              <width>100</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>100</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="toolTip">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Click for detailed information about fuel.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+            <property name="toolTipDuration">
+             <number>-1</number>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+            <property name="text">
+             <string>Energy</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QProgressBar" name="BAREnergy">
+            <property name="minimumSize">
+             <size>
+              <width>100</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>100</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="cursor">
+             <cursorShape>ArrowCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">text-align: center;</string>
+            </property>
+            <property name="value">
+             <number>55</number>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QFrame" name="FrameHull">
+         <property name="maximumSize">
+          <size>
+           <width>120</width>
+           <height>150</height>
+          </size>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <item>
+           <widget class="QPushButton" name="BTHull">
+            <property name="minimumSize">
+             <size>
+              <width>100</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>100</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Hull</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QProgressBar" name="BARHull">
+            <property name="minimumSize">
+             <size>
+              <width>100</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>100</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="cursor">
+             <cursorShape>ArrowCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">text-align: center;</string>
+            </property>
+            <property name="value">
+             <number>55</number>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="5" column="0" colspan="3">
      <widget class="QLineEdit" name="lineEdit">
       <property name="minimumSize">
        <size>
-        <width>40</width>
+        <width>85</width>
         <height>0</height>
        </size>
       </property>
-     </widget>
-    </item>
-    <item row="2" column="0" colspan="8">
-     <widget class="QTextBrowser" name="textBrowser"/>
-    </item>
-    <item row="5" column="2">
-     <widget class="QPushButton" name="BTClearAll">
-      <property name="maximumSize">
-       <size>
-        <width>50</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>Clear all</string>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
       </property>
      </widget>
     </item>
-    <item row="5" column="1">
+    <item row="5" column="3">
      <widget class="QPushButton" name="BTEnter">
       <property name="maximumSize">
        <size>
@@ -309,7 +378,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>465</width>
+     <width>500</width>
      <height>21</height>
     </rect>
    </property>

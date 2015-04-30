@@ -4,6 +4,7 @@
 #include "setroute.h"
 #include "QMessageBox"
 
+
 MainGame::MainGame(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainGame)
@@ -19,6 +20,15 @@ MainGame::~MainGame()
 {
     delete ui;
 }
+
+//**Pixmap strings**//
+QString space_station_pm = ":/pics/img/SpaceStation 383.jpg";
+QString space_station_ss = "background-color: rgb(113, 113, 113);";
+QString asteroid_pm = ":/pics/img/Spaceship stars 200px.jpg";
+QString asteroid_ss = "background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 10, 95, 255), stop:1 rgba(0, 10, 95, 255));";
+
+//****//
+
 
 //TODO: option to confirm quit
 
@@ -77,32 +87,37 @@ void MainGame::on_BTSetRoute_clicked()
     ui->BAREnergy->setValue(energy);
     ui->LBLocation->setText("Sector "+ QString::number(current_sector));
     jump();
-    ui->textBrowser->append("Test ");
+
 }
 
 
 
-void jump()
-{
+void MainGame::jump()
+{                     //TODO: Make graphic effects last as long as the sound effect
     switch (loc_event)//TODO: Write function for each case. TODO: Change grapics for each location
     {
     case location_event::SPACE_STATION:
-        qDebug() << "Space station graphics";
+        ui->Graphics->setPixmap(QPixmap(space_station_pm));
+        ui->Graphics->setStyleSheet(space_station_ss);
+        ui->textBrowser->append("The ship picks up an automated message from the space station:\n\"Welcome to Space Station \"" + QString::number(current_sector));//TODO: Replace space station number with a unique name.
         break;
     case location_event::ASTEROID:
-        qDebug() << "Asteroid graphics";
+        ui->Graphics->setPixmap(QPixmap(asteroid_pm));
+        ui->Graphics->setStyleSheet(asteroid_ss);
+        ui->textBrowser->append("You detect an asteroid field. Asteroids can be mined for valuable minerals.");
+        //ui->textBrowser->append("What are your orders? 1: Do something. 2: Do something else. etc...");
         break;
     case location_event::ENEMY_SHIP:
-        qDebug() << "Enemy Ship graphics";
+        ui->textBrowser->append("Enemy ship.");
         break;
     case location_event::FRIENDLY_SHIP:
-        qDebug() << "Friendly Ship graphics";
+        ui->textBrowser->append("Friendly ship.");
         break;
     case location_event::PLANET:
-        qDebug() << "Planet graphics";
+        ui->textBrowser->append("Planet.");
         break;
     case location_event::STAR:
-        qDebug() << "Star graphics";
+        ui->textBrowser->append("Star.");
         break;
     case location_event::BOSS1:
         qDebug() << "Boss 1 graphics";
@@ -132,7 +147,6 @@ void jump()
         error_generic();//TODO: Write better errors
         break;
     }
-
 
     qDebug() << "Jump Successful";
 }

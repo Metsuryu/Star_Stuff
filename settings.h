@@ -13,6 +13,8 @@ extern bool quit_confirm;
 extern bool musicplaying;
 extern QMediaPlayer *music;
 extern int volume;
+extern double sfx_volume;
+extern bool sfx_enabled;
 extern bool eng;
 extern bool ita;
 extern void save_settings();
@@ -89,6 +91,8 @@ private slots:
     void on_EngRadioButton_toggled(bool checked);
 
     void on_ItaRadioButton_toggled(bool checked);
+
+    void on_checkBox_sfx_toggled(bool checked);
 
 signals:
 

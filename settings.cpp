@@ -11,6 +11,7 @@ Settings::Settings(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->CheckBox_QuitConfirmation->setChecked(quit_confirm);
+    ui->checkBox_sfx->setChecked(sfx_enabled);
     ui->CheckBox_Music->setChecked(musicplaying);
     ui->Slider_Music->setValue(volume);
     ui->ItaRadioButton->setChecked(ita);
@@ -33,6 +34,8 @@ QMediaPlayer *music = new QMediaPlayer;
 bool quit_confirm = false;//Confirm before quitting setting.
 bool musicplaying = false;
 int volume = 42;
+double sfx_volume = 0.41;
+bool sfx_enabled = false;
 bool eng = true;
 bool ita = false;
 
@@ -120,7 +123,7 @@ void Settings::on_CheckBox_Music_released()
         music->stop();
         musicplaying = false;
     }else{
-        music->setMedia(QUrl("qrc:/music/Vedrim_Desperado.mp3"));;
+        music->setMedia(QUrl("qrc:/music/sfx/Vedrim_Desperado.mp3"));
         music->setVolume(ui->Slider_Music->value());
         music->play();
         musicplaying = true;
@@ -130,7 +133,7 @@ void Settings::on_CheckBox_Music_released()
 void Settings::on_Slider_Music_valueChanged(int value)
 {
     volume=value;
-    music->setVolume(value);
+    music->setVolume(volume);
 
 }
 //*****************************************//
@@ -162,3 +165,7 @@ void error_generic()//TODO: Use only until there are better errors available.
 }
 
 
+void Settings::on_checkBox_sfx_toggled(bool checked)
+{
+    sfx_enabled=checked;
+}

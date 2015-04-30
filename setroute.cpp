@@ -7,6 +7,7 @@
 #include "settings.h"
 #include "initializer_list"
 #include "initializer_lists.h"
+#include "QSoundEffect"
 
 
 SetRoute::SetRoute(QWidget *parent) :
@@ -26,6 +27,7 @@ SetRoute::~SetRoute()
 {
     delete ui;
 }
+
 
 bool not_enough_energy = false; //Can be set to true by mapinfo()
 double energy_required_value = 0.0;
@@ -143,7 +145,7 @@ void already_here_message()//TODO: Maybe play warning sound
     ah.setStandardButtons(QMessageBox::Ok);
     ah.setDefaultButton(QMessageBox::Ok);
     ah.setIcon(QMessageBox::Information);
-    ah.exec();
+    ah.exec();    
 }
 
 
@@ -153,9 +155,21 @@ void SetRoute::on_BTJumpToLocation_clicked()
     if(not_enough_energy){not_enough_energy_message(); return;}
     if(selected_location==current_sector){already_here_message(); return;}
     //**JUMP**//
+
     energy=energy-energy_required_value;
     ui->BAREnergyAvailable->setValue(energy);
     current_sector=selected_location;
+
+    //**sfx warp**//
+    if(sfx_enabled)
+    {
+    QSoundEffect *se_warp = new QSoundEffect;
+    se_warp->setSource(QUrl("qrc:/sfx/sfx/Warp sound.wav"));
+    //sfx_volume = volume; //Doesn't work. Alters value of volume. It's a bug of Qt: https://bugreports.qt.io/browse/QTBUG-43765
+    se_warp->setVolume(0.30f); //TODO: Set variable for volume of sfx sounds when Qt bug is fixed.
+    se_warp->play();
+    }
+    //**//
 
     switch (loc_event)//TODO: Write function for each case. TODO: Play sound and have option to disable sfx
     {//TODO: Put cases in order of most common>less common
