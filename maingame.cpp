@@ -13,7 +13,6 @@ MainGame::MainGame(QWidget *parent) :
     ui->BAREnergy->setValue(energy);
     ui->BARHull->setValue(hull);
     ui->LBLocation->setText("Sector "+ QString::number(current_sector));
-
 }
 
 MainGame::~MainGame()
@@ -30,7 +29,7 @@ QString asteroid_ss = "background-color: qlineargradient(spread:pad, x1:0, y1:0,
 //****//
 
 
-//TODO: option to confirm quit
+//TODO: Improve option to confirm quit
 
 void MainGame::closeEvent(QCloseEvent *event) //Asks the user for confirmation to quit.
 {   
@@ -48,7 +47,8 @@ void MainGame::closeEvent(QCloseEvent *event) //Asks the user for confirmation t
     switch (saveprompt)
     {
       case QMessageBox::Save:
-          // TODO: Add save function
+          // TODO: Improve save function
+          QApplication::quit();
           break;
       case QMessageBox::Discard:
           QApplication::quit();
@@ -100,6 +100,10 @@ void MainGame::jump()
         ui->Graphics->setPixmap(QPixmap(space_station_pm));
         ui->Graphics->setStyleSheet(space_station_ss);
         ui->textBrowser->append("The ship picks up an automated message from the space station:\n\"Welcome to Space Station \"" + QString::number(current_sector));//TODO: Replace space station number with a unique name.
+
+        ui->listWidget->addItem("Buy something to eat.");
+        ui->listWidget->addItem("Buy weapons.");
+
         break;
     case location_event::ASTEROID:
         ui->Graphics->setPixmap(QPixmap(asteroid_pm));
@@ -149,4 +153,18 @@ void MainGame::jump()
     }
 
     qDebug() << "Jump Successful";
+}
+
+void MainGame::on_BTEnter_clicked()//TODO: These are for testing. When the text is ready complete this function.
+{
+    QListWidgetItem *itm = ui->listWidget->currentItem();
+    QTextBrowser *tb = ui->textBrowser;
+
+
+    itm->setBackgroundColor(Qt::blue);
+    if(itm->text()=="Buy something to eat.")
+    {
+        tb->append("\nYou ate a miniaturized universe.\nThe taste was a bit rich, but it was pretty good.");
+    }
+
 }

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>500</width>
-    <height>653</height>
+    <width>487</width>
+    <height>703</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -21,159 +21,7 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="5" column="4">
-     <widget class="QPushButton" name="BTClearAll">
-      <property name="maximumSize">
-       <size>
-        <width>50</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>Clear all</string>
-      </property>
-     </widget>
-    </item>
-    <item row="9" column="15">
-     <widget class="QFrame" name="FrameGold">
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-      <layout class="QVBoxLayout" name="verticalLayout">
-       <property name="spacing">
-        <number>0</number>
-       </property>
-       <property name="leftMargin">
-        <number>0</number>
-       </property>
-       <property name="topMargin">
-        <number>0</number>
-       </property>
-       <property name="rightMargin">
-        <number>0</number>
-       </property>
-       <property name="bottomMargin">
-        <number>0</number>
-       </property>
-       <item>
-        <widget class="QPushButton" name="BTGold">
-         <property name="maximumSize">
-          <size>
-           <width>75</width>
-           <height>23</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>Gold</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="LBGold">
-         <property name="maximumSize">
-          <size>
-           <width>75</width>
-           <height>21</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>0</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-    </item>
-    <item row="0" column="0">
-     <widget class="QPushButton" name="BTMarketPlace">
-      <property name="maximumSize">
-       <size>
-        <width>120</width>
-        <height>23</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>Marketplace</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="7">
-     <widget class="QPushButton" name="BTInventory">
-      <property name="maximumSize">
-       <size>
-        <width>75</width>
-        <height>23</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>Inventory</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="10">
-     <widget class="QPushButton" name="BTSetRoute">
-      <property name="maximumSize">
-       <size>
-        <width>75</width>
-        <height>23</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>Set Route</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="15">
-     <widget class="QLabel" name="LBLocation">
-      <property name="text">
-       <string>Location</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="0" colspan="16">
-     <widget class="QLabel" name="Graphics">
-      <property name="minimumSize">
-       <size>
-        <width>383</width>
-        <height>383</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>60000</width>
-        <height>6000</height>
-       </size>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(113, 113, 113);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="pixmap">
-       <pixmap resource="res.qrc">:/pics/img/SpaceStation 383.jpg</pixmap>
-      </property>
-      <property name="scaledContents">
-       <bool>false</bool>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-      <property name="wordWrap">
-       <bool>false</bool>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="0" colspan="16">
-     <widget class="QTextBrowser" name="textBrowser"/>
-    </item>
-    <item row="9" column="0" colspan="8">
+    <item row="6" column="0" colspan="3">
      <widget class="QFrame" name="frame">
       <property name="minimumSize">
        <size>
@@ -345,20 +193,61 @@
       </layout>
      </widget>
     </item>
-    <item row="5" column="0" colspan="3">
-     <widget class="QLineEdit" name="lineEdit">
-      <property name="minimumSize">
+    <item row="0" column="2">
+     <widget class="QPushButton" name="BTInventory">
+      <property name="maximumSize">
        <size>
-        <width>85</width>
-        <height>0</height>
+        <width>75</width>
+        <height>23</height>
        </size>
       </property>
-      <property name="alignment">
-       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      <property name="text">
+       <string>Inventory</string>
       </property>
      </widget>
     </item>
-    <item row="5" column="3">
+    <item row="0" column="5">
+     <widget class="QLabel" name="LBLocation">
+      <property name="text">
+       <string>Location</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0" colspan="6">
+     <widget class="QLabel" name="Graphics">
+      <property name="minimumSize">
+       <size>
+        <width>383</width>
+        <height>383</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>60000</width>
+        <height>6000</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(113, 113, 113);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="res.qrc">:/pics/img/SpaceStation 383.jpg</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>false</bool>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="wordWrap">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="3">
      <widget class="QPushButton" name="BTEnter">
       <property name="maximumSize">
        <size>
@@ -371,6 +260,119 @@
       </property>
      </widget>
     </item>
+    <item row="0" column="4">
+     <widget class="QPushButton" name="BTSetRoute">
+      <property name="maximumSize">
+       <size>
+        <width>75</width>
+        <height>23</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>Set Route</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QPushButton" name="BTMarketPlace">
+      <property name="maximumSize">
+       <size>
+        <width>120</width>
+        <height>23</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>Marketplace</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0" colspan="6">
+     <widget class="QListWidget" name="listWidget"/>
+    </item>
+    <item row="2" column="0" colspan="6">
+     <widget class="QTextBrowser" name="textBrowser"/>
+    </item>
+    <item row="6" column="4">
+     <widget class="QPushButton" name="BTClearAll">
+      <property name="maximumSize">
+       <size>
+        <width>50</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>Clear all</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="5">
+     <widget class="QFrame" name="FrameGold">
+      <property name="maximumSize">
+       <size>
+        <width>77</width>
+        <height>90</height>
+       </size>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QPushButton" name="BTGold">
+         <property name="maximumSize">
+          <size>
+           <width>75</width>
+           <height>23</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Gold</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="LBGold">
+         <property name="minimumSize">
+          <size>
+           <width>75</width>
+           <height>21</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>75</width>
+           <height>21</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>0</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -378,7 +380,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>500</width>
+     <width>487</width>
      <height>21</height>
     </rect>
    </property>
@@ -467,6 +469,18 @@
    </property>
   </action>
  </widget>
+ <tabstops>
+  <tabstop>listWidget</tabstop>
+  <tabstop>BTEnter</tabstop>
+  <tabstop>BTClearAll</tabstop>
+  <tabstop>BTGold</tabstop>
+  <tabstop>BTEnergy</tabstop>
+  <tabstop>BTHull</tabstop>
+  <tabstop>BTMarketPlace</tabstop>
+  <tabstop>BTInventory</tabstop>
+  <tabstop>BTSetRoute</tabstop>
+  <tabstop>textBrowser</tabstop>
+ </tabstops>
  <resources>
   <include location="res.qrc"/>
  </resources>

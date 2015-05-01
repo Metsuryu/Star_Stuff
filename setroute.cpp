@@ -229,5 +229,7 @@ void SetRoute::on_BTCancel_clicked()
 
 void SetRoute::on_BTAdditionalInfo_clicked()//TODO: Open additional info dialog.
 {
+
+    qDebug() << "Full energy.";
     energy=energy_capacity;//TODO: Remove this when not needed anymore for debug.
 }

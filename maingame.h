@@ -26,6 +26,8 @@ private slots:
 
     void jump();
 
+    void on_BTEnter_clicked();
+
 private:
     Ui::MainGame *ui;
 
