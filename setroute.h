@@ -14,8 +14,8 @@ const unsigned int ener_cost = 10;
 extern void not_enough_energy_message();
 extern void already_here_message();
 extern double energy_required_value;
-
 extern QSoundEffect *se_warp;
+
 
 
 namespace Ui {
@@ -48,6 +48,7 @@ private:
 
    //QPushButton *mapbutton[matrixsize][matrixsize]; //Forward declaration of matrix of buttons
     location_PushButton *lpb[matrixsize][matrixsize]; //This has "loc" as a public member.
+
 };
 
 #endif // SETROUTE_H

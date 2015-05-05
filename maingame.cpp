@@ -13,6 +13,8 @@ MainGame::MainGame(QWidget *parent) :
     ui->BAREnergy->setValue(energy);
     ui->BARHull->setValue(hull);
     ui->LBLocation->setText("Sector "+ QString::number(current_sector));
+    ui->textBrowser->setContextMenuPolicy(Qt::NoContextMenu);
+
 }
 
 MainGame::~MainGame()
@@ -29,7 +31,7 @@ QString asteroid_ss = "background-color: qlineargradient(spread:pad, x1:0, y1:0,
 //****//
 
 
-//TODO: Improve option to confirm quit
+//TODO: Improve option to confirm quit: Add proper save function
 
 void MainGame::closeEvent(QCloseEvent *event) //Asks the user for confirmation to quit.
 {   
@@ -39,7 +41,7 @@ void MainGame::closeEvent(QCloseEvent *event) //Asks the user for confirmation t
     QMessageBox unsaved_alert;
     unsaved_alert.setText("Are you sure you want to quit?");
     unsaved_alert.setInformativeText("Do you want to save your progress or discard all changes and quit?");
-    unsaved_alert.setWindowTitle("Are you sure?");
+    unsaved_alert.setWindowTitle("Quit");
     unsaved_alert.setStandardButtons(QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel);
     unsaved_alert.setIcon(QMessageBox::Question);
     int saveprompt = unsaved_alert.exec();
@@ -99,17 +101,20 @@ void MainGame::jump()
     case location_event::SPACE_STATION:
         ui->Graphics->setPixmap(QPixmap(space_station_pm));
         ui->Graphics->setStyleSheet(space_station_ss);
-        ui->textBrowser->append("The ship picks up an automated message from the space station:\n\"Welcome to Space Station \"" + QString::number(current_sector));//TODO: Replace space station number with a unique name.
+        ui->textBrowser->append("\nThe ship picks up an automated message from the space station:\n\"Welcome to Space Station " + QString::number(current_sector) + "\"\n" );//TODO: Replace space station number with a unique name.
 
         ui->listWidget->addItem("Buy something to eat.");
-        ui->listWidget->addItem("Buy weapons.");
 
         break;
     case location_event::ASTEROID:
         ui->Graphics->setPixmap(QPixmap(asteroid_pm));
         ui->Graphics->setStyleSheet(asteroid_ss);
-        ui->textBrowser->append("You detect an asteroid field. Asteroids can be mined for valuable minerals.");
-        //ui->textBrowser->append("What are your orders? 1: Do something. 2: Do something else. etc...");
+        ui->textBrowser->append("\nYou detect an asteroid field. Asteroids can be mined for valuable minerals.");
+        //ui->textBrowser->append("\nWhat are your orders? 1: Do something. 2: Do something else. etc...");
+        ui->listWidget->addItem(QString("Use the ship's weapons to mine an asteroid. \n(%1 energy).").arg(energy));//TODO: "energy" is temporary. Set a proper value.
+        ui->listWidget->addItem("Assign a drone to this field.");
+
+
         break;
     case location_event::ENEMY_SHIP:
         ui->textBrowser->append("Enemy ship.");
@@ -157,14 +162,29 @@ void MainGame::jump()
 
 void MainGame::on_BTEnter_clicked()//TODO: These are for testing. When the text is ready complete this function.
 {
+    if(!ui->listWidget->currentItem()){qDebug() << "Nothing selected."; return;}
     QListWidgetItem *itm = ui->listWidget->currentItem();
     QTextBrowser *tb = ui->textBrowser;
 
+    tb->setTextColor(Qt::blue);
+    tb->append(itm->text());
+    tb->setTextColor(Qt::black);
 
-    itm->setBackgroundColor(Qt::blue);
+    //**Space Station**//
     if(itm->text()=="Buy something to eat.")
     {
-        tb->append("\nYou ate a miniaturized universe.\nThe taste was a bit rich, but it was pretty good.");
+
+        tb->append("\nYou ate a miniaturized universe.\nIt felt a bit spicy, probably because of all the nuclear activity in the galaxies.");
+        qDeleteAll(ui->listWidget->selectedItems());
     }
+    //TODO: add other if(){} conditions here
+    //**Space Station**//
+
+    //**Asteroid**//
+
+    //**Asteroid**//
+
+
+
 
 }

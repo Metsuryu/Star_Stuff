@@ -41,7 +41,7 @@ bool ita = false;
 
 int hull = 89;
 int gold = 10;
-QString location = "Space Station 1";//Temp. name
+QString location = "Space Station 1";//TODO: Temp. name, to change
 int current_sector = 1;
 //vector<string> inventory;
 int inventory_capacity = 100;
@@ -55,6 +55,14 @@ QString greenbar = "QProgressBar{text-align:center;}";
 int selected_location = 0;
 location_event loc_event = location_event::NO_JUMP;
 bool nemesis = false; //Is set to true if you are enemy with both factions
+
+QString testst = QString("%1").arg(energy);
+
+
+
+
+
+
 
 //**Save settings**// //TODO: Change filename to settings.config or something similar
 void save_settings()
@@ -116,7 +124,7 @@ void Settings::on_CheckBox_QuitConfirmation_toggled(bool checked)
 //*************//
 
 //***************Music***************// //TODO: Make a playlist and loop it.
-void Settings::on_CheckBox_Music_released()
+void Settings::on_CheckBox_Music_clicked()
 {
     if (musicplaying)
     {
@@ -169,3 +177,4 @@ void Settings::on_checkBox_sfx_toggled(bool checked)
 {
     sfx_enabled=checked;
 }
+

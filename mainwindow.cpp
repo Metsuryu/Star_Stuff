@@ -11,6 +11,7 @@ MainWindow::MainWindow(QWidget *parent) :
     //TODO: Load settings
     load_settings();
 
+
 }
 
 MainWindow::~MainWindow()
@@ -36,7 +37,6 @@ void MainWindow::on_NewGame_clicked()  //Opens Maingame window
 
 void MainWindow::on_Settings_clicked() //Opens settings
 {
-    //Settings* settings = new Settings;
     Settings settings;
     connect(&settings,SIGNAL(ChangeMain_clicked()),this,SLOT(setok())); //Connects Settings to MainWindow
     settings.setModal(true);
@@ -63,8 +63,6 @@ void MainWindow::on_ChangeLanguage_clicked()
 
 void MainWindow::setok()
 {
-   // MainWindow *mn = new MainWindow(); //Doesn't work
-   // mn->ui->TitleLabel->setText("OK.");
     ui->TitleLabel->setText("OK.");
     ui->NewGame->setText("OK.");
 }

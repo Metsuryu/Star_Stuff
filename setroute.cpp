@@ -1,7 +1,6 @@
- #include "setroute.h"
+#include "setroute.h"
 #include "ui_setroute.h"
 #include "location.h"
-#include "location.cpp"
 #include "QString"
 #include "location_pushbutton.h"
 #include "settings.h"
@@ -21,6 +20,7 @@ SetRoute::SetRoute(QWidget *parent) :
     makemap();
     selected_location=current_sector;
     ui->LBCurrentLocationValue->setText("Sector " + QString::number(current_sector));
+
 }
 
 SetRoute::~SetRoute()
@@ -53,20 +53,23 @@ void SetRoute::makemap()
     for (int i=0; i<=matrixsize-1; i++)//Fill map
     {{for (int j=0;j<=matrixsize-1;j++)
             {
-                lpb[i][j] = new location_PushButton;//("p",ui->MapFrame);
+                lpb[i][j] = new location_PushButton;
                 lpb[i][j]->setMaximumSize(bttnsz,bttnsz);
                 lpb[i][j]->setMinimumSize(bttnsz,bttnsz);
                 lpb[i][j]->setText(QString::number(counter));
                 lpb[i][j]->loc.id_setval(counter);
-                distance=abs(lpb[i][j]->loc.id_val()-current_sector);
-                lpb[i][j]->loc.energy_required_setval((inventory_load+ener_cost)*distance);//TODO: Calculate energy_required for each location
-                connect(lpb[i][j],SIGNAL(released()),this,SLOT(mapinfo()));
+                distance=abs(lpb[i][j]->loc.id_val()-current_sector); //Absolute distance from current location
+                /* TODO: Calculate energy_required for each location.
+                 * For now try to find a good value for "ener_cost",
+                 * if it's not good enough, try something else.*/
+                lpb[i][j]->loc.energy_required_setval((inventory_load+ener_cost)*distance);
+                connect(lpb[i][j],SIGNAL(clicked()),this,SLOT(mapinfo()));
                 ui->MapLayout->addWidget(lpb[i][j],i,j);
                 lpb[i][j]->show();
                 counter ++;
             }
         }}
-
+//lpb[0][0]->loc.visitedbefore_setval(true);//Starting point was visited before.
 }//makemap() end//
 
 
@@ -99,7 +102,8 @@ void SetRoute::mapinfo()
                     selected_location = lpb_id;
                     ui->BTJumpToLocation->setText("Jump to\nsector " + QString::number(lpb_id));
                     ui->BAREnergyRequired->setValue(energy_required);
-
+                    //if(visited_before[i][j]){ui->LBVisitedBeforeValue->setText("Yes");}
+                    //else if(!visited_before[i][j]){ui->LBVisitedBeforeValue->setText("No");}
 
                     //**Assign loc_event to selected location**//
                     if(is_in(lpb_id,{SPACE_STATIONS_LIST})) {loc_event=location_event::SPACE_STATION;}
@@ -160,27 +164,32 @@ void SetRoute::on_BTJumpToLocation_clicked()
     ui->BAREnergyAvailable->setValue(energy);
     current_sector=selected_location;
 
+    for (int i=0; i<=matrixsize-1; i++)
+    {{for (int j=0;j<=matrixsize-1;j++)
+            {if(lpb[i][j]->loc.id_val() == selected_location)
+                {qDebug() << selected_location; break;/*visited_before[i][j] = true;*/}}}} //Maybe end loop-
+
     //**sfx warp**//
     if(sfx_enabled)
     {
-    QSoundEffect *se_warp = new QSoundEffect;
+    QSoundEffect *se_warp = new QSoundEffect();//Can't set "this" as parent, or it will be deleted before it plays.
     se_warp->setSource(QUrl("qrc:/sfx/sfx/Warp sound.wav"));
     //sfx_volume = volume; //Doesn't work. Alters value of volume. It's a bug of Qt: https://bugreports.qt.io/browse/QTBUG-43765
     se_warp->setVolume(0.30f); //TODO: Set variable for volume of sfx sounds when Qt bug is fixed.
-    se_warp->play();
+    se_warp->play();//Can't delete se_warp here, or it won't play. TODO: Find a way to fix memory leak without breaking sound. Maybe use a thread?
     }
-    //**//
+    //**sfx warp**//
 
     switch (loc_event)//TODO: Write function for each case. TODO: Play sound and have option to disable sfx
-    {//TODO: Put cases in order of most common>less common
+    {
+    case location_event::ENEMY_SHIP:
+        qDebug() << "Enemy Ship";
+        break;
     case location_event::SPACE_STATION:
         qDebug() << "Space station";
         break;
     case location_event::ASTEROID:
         qDebug() << "Asteroid";
-        break;
-    case location_event::ENEMY_SHIP:
-        qDebug() << "Enemy Ship";
         break;
     case location_event::FRIENDLY_SHIP:
         qDebug() << "Friendly Ship";
@@ -219,7 +228,7 @@ void SetRoute::on_BTJumpToLocation_clicked()
 
     //TODO: Some animation or something to show you jumped
     SetRoute::close();
-}//Jump end//
+}//JUMP//
 
 void SetRoute::on_BTCancel_clicked()
 {
@@ -229,7 +238,6 @@ void SetRoute::on_BTCancel_clicked()
 
 void SetRoute::on_BTAdditionalInfo_clicked()//TODO: Open additional info dialog.
 {
-
     qDebug() << "Full energy.";
     energy=energy_capacity;//TODO: Remove this when not needed anymore for debug.
 }

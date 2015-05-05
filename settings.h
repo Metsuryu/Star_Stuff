@@ -37,6 +37,10 @@ extern int selected_location;
 extern void error_generic();
 extern bool nemesis;
 
+extern QString testst;
+
+
+
 
 enum class location_event
 {
@@ -84,7 +88,7 @@ private slots:
 
     void on_CheckBox_QuitConfirmation_toggled(bool checked);
 
-    void on_CheckBox_Music_released();
+    void on_CheckBox_Music_clicked();
 
     void on_Slider_Music_valueChanged(int value);
 
@@ -93,6 +97,8 @@ private slots:
     void on_ItaRadioButton_toggled(bool checked);
 
     void on_checkBox_sfx_toggled(bool checked);
+
+
 
 signals:
 
