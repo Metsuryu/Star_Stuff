@@ -7,6 +7,7 @@
 #include "initializer_list"
 #include "initializer_lists.h"
 #include "QSoundEffect"
+#include "QSound"
 
 
 SetRoute::SetRoute(QWidget *parent) :
@@ -169,14 +170,15 @@ void SetRoute::on_BTJumpToLocation_clicked()
             {if(lpb[i][j]->loc.id_val() == selected_location)
                 {qDebug() << selected_location; break;/*visited_before[i][j] = true;*/}}}} //Maybe end loop-
 
-    //**sfx warp**//
+    //**sfx warp**//  //TODO: Use Phonon for sound effects and music
     if(sfx_enabled)
     {
     QSoundEffect *se_warp = new QSoundEffect();//Can't set "this" as parent, or it will be deleted before it plays.
     se_warp->setSource(QUrl("qrc:/sfx/sfx/Warp sound.wav"));
     //sfx_volume = volume; //Doesn't work. Alters value of volume. It's a bug of Qt: https://bugreports.qt.io/browse/QTBUG-43765
     se_warp->setVolume(0.30f); //TODO: Set variable for volume of sfx sounds when Qt bug is fixed.
-    se_warp->play();//Can't delete se_warp here, or it won't play. TODO: Find a way to fix memory leak without breaking sound. Maybe use a thread?
+    se_warp->play();
+
     }
     //**sfx warp**//
 

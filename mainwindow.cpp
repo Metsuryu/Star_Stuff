@@ -11,6 +11,8 @@ MainWindow::MainWindow(QWidget *parent) :
     //TODO: Load settings
     load_settings();
 
+    ui->NewGame->setToolTip("<b>Start a new game<\b>"); //TODO: maybe add tooltips to some stuff.
+
 
 }
 

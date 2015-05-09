@@ -14,6 +14,10 @@ MainGame::MainGame(QWidget *parent) :
     ui->BARHull->setValue(hull);
     ui->LBLocation->setText("Sector "+ QString::number(current_sector));
     ui->textBrowser->setContextMenuPolicy(Qt::NoContextMenu);
+    ui->textBrowser->append("Welcome to Star Stuff.\n"
+                            "This is a very early version missing a lot of stuff, and it's not currently playable.\n"
+                            "If you want to know more, read the README file in Metsuryu's GitHub page of Star_Stuff here:\n\
+https://github.com/Metsuryu/Star_Stuff/blob/master/README.md");
 
 }
 
@@ -99,6 +103,7 @@ void MainGame::jump()
     switch (loc_event)//TODO: Write function for each case. TODO: Change grapics for each location
     {
     case location_event::SPACE_STATION:
+        ui->listWidget->clear();
         ui->Graphics->setPixmap(QPixmap(space_station_pm));
         ui->Graphics->setStyleSheet(space_station_ss);
         ui->textBrowser->append("\nThe ship picks up an automated message from the space station:\n\"Welcome to Space Station " + QString::number(current_sector) + "\"\n" );//TODO: Replace space station number with a unique name.
@@ -107,6 +112,7 @@ void MainGame::jump()
 
         break;
     case location_event::ASTEROID:
+        ui->listWidget->clear();
         ui->Graphics->setPixmap(QPixmap(asteroid_pm));
         ui->Graphics->setStyleSheet(asteroid_ss);
         ui->textBrowser->append("\nYou detect an asteroid field. Asteroids can be mined for valuable minerals.");
@@ -181,7 +187,7 @@ void MainGame::on_BTEnter_clicked()//TODO: These are for testing. When the text 
     //**Space Station**//
 
     //**Asteroid**//
-
+    //TODO: Add asteroid event
     //**Asteroid**//
 
 

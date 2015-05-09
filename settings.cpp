@@ -38,7 +38,6 @@ double sfx_volume = 0.41;
 bool sfx_enabled = false;
 bool eng = true;
 bool ita = false;
-
 int hull = 89;
 int gold = 10;
 QString location = "Space Station 1";//TODO: Temp. name, to change
@@ -74,27 +73,26 @@ void save_settings()
     QTextStream out(&save_file);//TODO: Add other settings
     out << volume << "\n";
     save_file.close();
-}
-//**Settings Saved**//
+}//**Save settings**//
 
 //**Load Settings**//
 void load_settings()
 {
     QFile load_file("settings.txt");//TODO: Match name of savefile
-    if (!load_file.open(QIODevice::ReadOnly | QIODevice::Text))
+    if(!load_file.open(QIODevice::ReadOnly | QIODevice::Text))
+    {
+        qDebug() << "Couldn't open savefile.";
         return;
+    }
 
     QTextStream in(&load_file);
-    while (!in.atEnd())
+    while(!in.atEnd())
     {
         QString line = in.readLine();
         volume=line.toInt();//TODO: Complete this function
     }
-}
-
-//**Settings Loaded**//
-
-//**********************//
+    qDebug() << "Settings loaded";
+}//**Load Settings**//
 
 
 void Settings::on_OKCancel_accepted()
@@ -114,16 +112,16 @@ void Settings::on_ChangeMain_clicked()
     emit ChangeMain_clicked();
 }
 void ChangeMain_clicked(){}
-//**//
+//**TODO: Remove test function**//
 
 //**Cofirm quit**//
 void Settings::on_CheckBox_QuitConfirmation_toggled(bool checked)
 {
     quit_confirm=checked;
 }
-//*************//
+//**Cofirm quit**//
 
-//***************Music***************// //TODO: Make a playlist and loop it.
+//**Music**// //TODO: Make a playlist and loop it.
 void Settings::on_CheckBox_Music_clicked()
 {
     if (musicplaying)
@@ -136,29 +134,35 @@ void Settings::on_CheckBox_Music_clicked()
         music->play();
         musicplaying = true;
     }
-}
-//**//
+}//**Music**//
+
+//**Music's Volume**//
 void Settings::on_Slider_Music_valueChanged(int value)
 {
     volume=value;
     music->setVolume(volume);
 
-}
-//*****************************************//
+}//**Music's Volume**//
+
+//**Sound Effects**//
+void Settings::on_checkBox_sfx_toggled(bool checked)
+{
+    sfx_enabled=checked;
+}//**Sound Effects**//
 
 //**Language**//
+//English
 void Settings::on_EngRadioButton_toggled(bool checked)
 {
     eng=checked;
     ita=(!checked);
 }
-//**//
+//Italian
 void Settings::on_ItaRadioButton_toggled(bool checked)
 {
     ita=checked;
     eng=(!checked);
-}
-//***************//
+}//**Language**//
 
 void error_generic()//TODO: Use only until there are better errors available.
 {    
@@ -173,8 +177,4 @@ void error_generic()//TODO: Use only until there are better errors available.
 }
 
 
-void Settings::on_checkBox_sfx_toggled(bool checked)
-{
-    sfx_enabled=checked;
-}
 
