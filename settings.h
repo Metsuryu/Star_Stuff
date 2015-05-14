@@ -6,6 +6,7 @@
 #include "QMediaPlayer"
 #include "QString"
 #include "initializer_list"
+#include "setroute.h"
 
 //**Settings variables**//
 
@@ -20,7 +21,6 @@ extern bool ita;
 extern void save_settings();
 extern void load_settings();
 extern int current_sector;
-
 extern int hull;
 extern int gold;
 //QString location;
@@ -36,11 +36,7 @@ extern QString greenbar;
 extern int selected_location;
 extern void error_generic();
 extern bool nemesis;
-
-extern QString testst;
-
-
-
+extern bool visited_before_arr[];
 
 enum class location_event
 {
@@ -64,7 +60,7 @@ enum class location_event
 
 extern location_event loc_event;
 
-//**********************//
+//**Settings variables**//
 
 namespace Ui {
 class Settings;

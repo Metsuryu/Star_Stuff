@@ -5,7 +5,7 @@ class location
 {
 public:
 
-    location() //Default constructor
+    location()
     {id=0;energy_required=0;visitedbefore=false;quest=false;}
 
     location(int idC,int energy_requiredC,bool visitedbeforeC,bool questC)

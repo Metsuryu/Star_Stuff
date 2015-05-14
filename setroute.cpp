@@ -18,6 +18,7 @@ SetRoute::SetRoute(QWidget *parent) :
 
     energy_available = (energy*100)/energy_capacity;
     ui->BAREnergyAvailable->setValue(energy_available);
+    visited_before_arr[1] = true;
     makemap();
     selected_location=current_sector;
     ui->LBCurrentLocationValue->setText("Sector " + QString::number(current_sector));
@@ -49,6 +50,7 @@ bool is_in(const T& val, const std::initializer_list<T>& list)
 
 void SetRoute::makemap()
 {
+
     //**Matrix of buttons**//
     int counter = 1;
     for (int i=0; i<=matrixsize-1; i++)//Fill map
@@ -59,6 +61,7 @@ void SetRoute::makemap()
                 lpb[i][j]->setMinimumSize(bttnsz,bttnsz);
                 lpb[i][j]->setText(QString::number(counter));
                 lpb[i][j]->loc.id_setval(counter);
+                lpb[i][j]->loc.visitedbefore_setval(visited_before_arr[counter]);
                 distance=abs(lpb[i][j]->loc.id_val()-current_sector); //Absolute distance from current location
                 /* TODO: Calculate energy_required for each location.
                  * For now try to find a good value for "ener_cost",
@@ -85,6 +88,7 @@ void SetRoute::mapinfo()
             {if(lpb[i][j] == sender())
                 {
                     int lpb_id = lpb[i][j]->loc.id_val(); //Temp. variable for easier reading.
+                    bool visited_before = lpb[i][j]->loc.visitedbefore_val();
 
                     energy_required=(lpb[i][j]->loc.energy_required_val()*100)/energy_available; //Set energy_required value in %
                     energy_required_value=lpb[i][j]->loc.energy_required_val();
@@ -103,8 +107,8 @@ void SetRoute::mapinfo()
                     selected_location = lpb_id;
                     ui->BTJumpToLocation->setText("Jump to\nsector " + QString::number(lpb_id));
                     ui->BAREnergyRequired->setValue(energy_required);
-                    //if(visited_before[i][j]){ui->LBVisitedBeforeValue->setText("Yes");}
-                    //else if(!visited_before[i][j]){ui->LBVisitedBeforeValue->setText("No");}
+                    if(visited_before){ui->LBVisitedBeforeValue->setText("Yes");}
+                    else if(!visited_before){ui->LBVisitedBeforeValue->setText("No");}
 
                     //**Assign loc_event to selected location**//
                     if(is_in(lpb_id,{SPACE_STATIONS_LIST})) {loc_event=location_event::SPACE_STATION;}
@@ -168,7 +172,7 @@ void SetRoute::on_BTJumpToLocation_clicked()
     for (int i=0; i<=matrixsize-1; i++)
     {{for (int j=0;j<=matrixsize-1;j++)
             {if(lpb[i][j]->loc.id_val() == selected_location)
-                {qDebug() << selected_location; break;/*visited_before[i][j] = true;*/}}}} //Maybe end loop-
+                {qDebug() << selected_location; visited_before_arr[selected_location]=true; break;}}}}
 
     //**sfx warp**//  //TODO: Use Phonon for sound effects and music
     if(sfx_enabled)

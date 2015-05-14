@@ -2,6 +2,9 @@
 #include <QApplication>
 
 
+
+
+
 int main(int argc, char *argv[])
 {
     QApplication StarStuff(argc, argv);
@@ -10,5 +13,5 @@ int main(int argc, char *argv[])
     w.show();
 
     return StarStuff.exec();
-    }
+}
 

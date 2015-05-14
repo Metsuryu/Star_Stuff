@@ -14,10 +14,13 @@ MainGame::MainGame(QWidget *parent) :
     ui->BARHull->setValue(hull);
     ui->LBLocation->setText("Sector "+ QString::number(current_sector));
     ui->textBrowser->setContextMenuPolicy(Qt::NoContextMenu);
+    ui->textBrowser->setOpenExternalLinks(true);
+
     ui->textBrowser->append("Welcome to Star Stuff.\n"
                             "This is a very early version missing a lot of stuff, and it's not currently playable.\n"
-                            "If you want to know more, read the README file in Metsuryu's GitHub page of Star_Stuff here:\n\
-https://github.com/Metsuryu/Star_Stuff/blob/master/README.md");
+                            "If you want to know more, read the README file in Metsuryu's GitHub page of Star_Stuff here:\n");
+    ui->textBrowser->insertHtml("<a href=https://github.com/Metsuryu/Star_Stuff/blob/master/README.md>Click here to read Star Stuff online readme.</a> \n");
+
 
 }
 
@@ -31,8 +34,7 @@ QString space_station_pm = ":/pics/img/SpaceStation 383.jpg";
 QString space_station_ss = "background-color: rgb(113, 113, 113);";
 QString asteroid_pm = ":/pics/img/Spaceship stars 200px.jpg";
 QString asteroid_ss = "background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 10, 95, 255), stop:1 rgba(0, 10, 95, 255));";
-
-//****//
+//**Pixmap strings**//
 
 
 //TODO: Improve option to confirm quit: Add proper save function

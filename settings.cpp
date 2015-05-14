@@ -4,6 +4,7 @@
 #include <QFile>
 #include "QString"
 #include "QMessageBox"
+#include "setroute.h"
 
 Settings::Settings(QWidget *parent) :
     QDialog(parent),
@@ -55,9 +56,7 @@ int selected_location = 0;
 location_event loc_event = location_event::NO_JUMP;
 bool nemesis = false; //Is set to true if you are enemy with both factions
 
-QString testst = QString("%1").arg(energy);
-
-
+bool visited_before_arr[matrixsize*matrixsize];
 
 
 
